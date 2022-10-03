@@ -1,0 +1,46 @@
+{
+  "world":{
+    "G": 6.67e-11,
+    "method": "euler",
+    "render": true,
+    "save": true,
+    "dt": 100,
+    "end time": 5e9
+  },
+  "entities":[
+     {
+      "class": "random_sphere",
+      "center_position": [0, 0, 0],
+      "radius": 500,
+      "mass": 1e4,
+      "mass_range": 1e1,
+      "number": 200,
+      "velocity": [0, 0, 0]
+    },
+    {
+      "class": "random_sphere",
+      "center_position": [1200, 0, 0],
+      "radius": 500,
+      "mass": 1e4,
+      "mass_range": 1e2,
+      "number": 200,
+      "velocity": [0, 0, 0]
+    },
+    {
+      "name": "star",
+      "class": "phys_body",
+      "position": [600, -1500, 0],
+      "mass": 1e10,
+      "velocity": [0, 0.1, 0],
+      "radius": 2
+    },
+    {
+      "name": "star2",
+      "class": "phys_body",
+      "position": [-3000, 2000, 0],
+      "mass": 1e10,
+      "velocity": [0.1, 0, 0],
+      "radius": 2
+    }
+  ]
+}
