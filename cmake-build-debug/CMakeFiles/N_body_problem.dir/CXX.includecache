@@ -676,6 +676,10 @@ SFML/Config.hpp
 
 C:/Users/alexe/Documents/Code/Libraries/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp
 
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Config.h
+map
+-
+
 C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Entities.h
 string
 -
@@ -692,19 +696,261 @@ fstream
 Entities.h
 C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Entities.h
 
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Loader.cpp
+include/rapidjson/document.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/document.h
+include/rapidjson/istreamwrapper.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/istreamwrapper.h
+fstream
+-
+time.h
+-
+Entities.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Entities.h
+Config.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Config.h
+Vectors.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Vectors.h
+
 C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Loader.h
 
 C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Physics.h
 Entities.h
 C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Entities.h
 
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Renderer.cpp
+SFML/Graphics.hpp
+-
+time.h
+-
+Entities.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Entities.h
+Config.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Config.h
+UI.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/UI.h
+
 C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Renderer.h
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/UI.h
+string
+-
+Vectors.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Vectors.h
 
 C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Vectors.h
 ctime
 -
 cmath
 -
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/allocators.h
+rapidjson.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson.h
+internal/meta.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/meta.h
+memory
+-
+type_traits
+-
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/document.h
+reader.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/reader.h
+internal/meta.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/meta.h
+internal/strfunc.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/strfunc.h
+memorystream.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/memorystream.h
+encodedstream.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/encodedstream.h
+new
+-
+limits
+-
+compare
+-
+iterator
+-
+map
+-
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/encodedstream.h
+stream.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/stream.h
+memorystream.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/memorystream.h
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/encodings.h
+rapidjson.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson.h
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/error/error.h
+../rapidjson.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson.h
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/biginteger.h
+../rapidjson.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson.h
+intrin.h
+-
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/clzll.h
+../rapidjson.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson.h
+intrin.h
+-
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/diyfp.h
+../rapidjson.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson.h
+clzll.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/clzll.h
+limits
+-
+intrin.h
+-
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/ieee754.h
+../rapidjson.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson.h
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/meta.h
+../rapidjson.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson.h
+type_traits
+-
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/pow10.h
+../rapidjson.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson.h
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/stack.h
+../allocators.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/allocators.h
+swap.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/swap.h
+cstddef
+-
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/strfunc.h
+../stream.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/stream.h
+cwchar
+-
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/strtod.h
+ieee754.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/ieee754.h
+biginteger.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/biginteger.h
+diyfp.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/diyfp.h
+pow10.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/pow10.h
+climits
+-
+limits
+-
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/swap.h
+../rapidjson.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson.h
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/istreamwrapper.h
+stream.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/stream.h
+iosfwd
+-
+ios
+-
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/memorystream.h
+stream.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/stream.h
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/msinttypes/inttypes.h
+stdint.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/msinttypes/stdint.h
+inttypes.h
+-
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/msinttypes/stdint.h
+stdint.h
+-
+limits.h
+-
+wchar.h
+-
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson.h
+cstdlib
+-
+cstring
+-
+rapidjson/...
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson/...
+string
+-
+msinttypes/stdint.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/msinttypes/stdint.h
+msinttypes/inttypes.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/msinttypes/inttypes.h
+stdint.h
+-
+inttypes.h
+-
+endian.h
+-
+rapidjson/...
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson/...
+cassert
+-
+utility
+-
+cassert
+-
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/reader.h
+allocators.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/allocators.h
+stream.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/stream.h
+encodedstream.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/encodedstream.h
+internal/clzll.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/clzll.h
+internal/meta.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/meta.h
+internal/stack.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/stack.h
+internal/strtod.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/internal/strtod.h
+limits
+-
+intrin.h
+-
+nmmintrin.h
+-
+emmintrin.h
+-
+arm_neon.h
+-
+stdexcept
+-
+rapidjson/error/error.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson/error/error.h
+rapidjson/reader.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson/reader.h
+error/error.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/error/error.h
+
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/stream.h
+rapidjson.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/rapidjson.h
+encodings.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/include/rapidjson/encodings.h
 
 C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/main.cpp
 iostream
@@ -727,4 +973,6 @@ Physics.h
 C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Physics.h
 Files.h
 C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Files.h
+Config.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Config.h
 

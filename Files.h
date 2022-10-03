@@ -22,4 +22,6 @@ public:
     double read_double();
 };
 
+std::string file_extension(std::string name);
+
 #endif //N_BODY_PROBLEM_FILES_H

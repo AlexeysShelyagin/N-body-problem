@@ -38,3 +38,11 @@ template void file::write <int> (int);
 template void file::write <double> (double);
 template void file::write <std::string> (std::string);
 template void file::write <char const*> (char const*);
+
+std::string file_extension(std::string name){
+    int i = name.length() - 1;
+    while(name[i] != '.') i--;
+    std::string ext;
+    for(;i < name.length(); i++) ext += name[i];
+    return ext;
+}
