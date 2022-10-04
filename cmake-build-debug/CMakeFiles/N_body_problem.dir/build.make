@@ -200,11 +200,11 @@ N_body_problem.exe: CMakeFiles/N_body_problem.dir/Renderer.cpp.obj
 N_body_problem.exe: CMakeFiles/N_body_problem.dir/UI.cpp.obj
 N_body_problem.exe: CMakeFiles/N_body_problem.dir/Files.cpp.obj
 N_body_problem.exe: CMakeFiles/N_body_problem.dir/build.make
-N_body_problem.exe: C:/Users/alexe/Documents/Code/Libraries/SFML-2.5.1/lib/libsfml-system-s-d.a
-N_body_problem.exe: C:/Users/alexe/Documents/Code/Libraries/SFML-2.5.1/lib/libsfml-window-s-d.a
-N_body_problem.exe: C:/Users/alexe/Documents/Code/Libraries/SFML-2.5.1/lib/libsfml-graphics-s-d.a
-N_body_problem.exe: C:/Users/alexe/Documents/Code/Libraries/SFML-2.5.1/lib/libsfml-window-s-d.a
-N_body_problem.exe: C:/Users/alexe/Documents/Code/Libraries/SFML-2.5.1/lib/libsfml-system-s-d.a
+N_body_problem.exe: C:/Program\ Files/CodeBlocks/MinGW/lib/libsfml-system-s-d.a
+N_body_problem.exe: C:/Program\ Files/CodeBlocks/MinGW/lib/libsfml-window-s-d.a
+N_body_problem.exe: C:/Program\ Files/CodeBlocks/MinGW/lib/libsfml-graphics-s-d.a
+N_body_problem.exe: C:/Program\ Files/CodeBlocks/MinGW/lib/libsfml-window-s-d.a
+N_body_problem.exe: C:/Program\ Files/CodeBlocks/MinGW/lib/libsfml-system-s-d.a
 N_body_problem.exe: C:/Users/alexe/Documents/Code/Libraries/SFML-2.5.1/lib/libfreetype.a
 N_body_problem.exe: CMakeFiles/N_body_problem.dir/linklibs.rsp
 N_body_problem.exe: CMakeFiles/N_body_problem.dir/objects1.rsp

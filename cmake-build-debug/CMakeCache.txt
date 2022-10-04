@@ -265,6 +265,9 @@ Ogg_LIB:FILEPATH=C:/Users/alexe/Documents/Code/Libraries/SFML-2.5.1/lib/libogg.a
 //Path to a library.
 OpenAL_LIB:FILEPATH=C:/Users/alexe/Documents/Code/Libraries/SFML-2.5.1/lib/libopenal32.a
 
+//The directory containing a CMake configuration file for SFML.
+SFML_DIR:PATH=C:/Program Files/CodeBlocks/MinGW/lib/cmake/SFML
+
 //Path to a file.
 SFML_DOC_DIR:PATH=SFML_DOC_DIR-NOTFOUND
 

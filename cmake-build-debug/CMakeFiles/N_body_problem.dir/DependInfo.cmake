@@ -26,7 +26,9 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "C:/Users/alexe/Documents/Code/Libraries/SFML-2.5.1/include"
+  "C:/Program"
+  "../Files/CodeBlocks/MinGW/include"
+  "C:/Program Files/CodeBlocks/MinGW/include"
   )
 
 # The set of dependency files which are needed:
