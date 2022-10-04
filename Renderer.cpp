@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <time.h>
+#include <iostream>
 
 #include "Entities.h"
 #include "Config.h"
@@ -22,6 +23,7 @@ window_surface surf_3d;
 ent_ortho_camera camera_3d(vec3(), vec2(PI / 4, PI / 4), 0.1);
 
 vec2 pressed_pos;
+int mouse_window;
 
 int frame_count = 0, last, fps = 0;
 time_t current;
@@ -61,19 +63,32 @@ void sf_window_event(RenderWindow& window, ent_world& world){
         }
         if (event.type == Event::MouseButtonPressed){
             pressed_pos = mouse_pos;
+
+            if(surf_top.inside(mouse_pos)) mouse_window = 1;
+            if(surf_front.inside(mouse_pos)) mouse_window = 2;
+            if(surf_side.inside(mouse_pos)) mouse_window = 3;
+            if(surf_3d.inside(mouse_pos)) mouse_window = 0;
+
+            std::cout << mouse_pos.x << ' ' << mouse_pos.y << '\n';
         }
         if (Mouse::isButtonPressed(sf::Mouse::Left)){
             vec2 mouse_delta = mouse_pos - pressed_pos;
-            if(surf_top.inside(mouse_pos)) top.pos += mouse_delta;
-            if(surf_front.inside(mouse_pos)) front.pos += mouse_delta;
-            if(surf_side.inside(mouse_pos)) side.pos += mouse_delta;
-            if(surf_3d.inside(mouse_pos)){
+            pressed_pos = mouse_pos;
+
+            if(mouse_window == 0) {
                 camera_3d.change_orientation(vec2(
                     -mouse_delta.x / 100,
                     -mouse_delta.y / 100
                 ));
             }
-            pressed_pos = mouse_pos;
+            if(mouse_window == 1) top.pos += mouse_delta;
+            if(mouse_window == 2) front.pos += mouse_delta;
+            if(mouse_window == 3) side.pos += mouse_delta;
+        }
+        if(event.type == Event::Resized) {
+            View view = window.getDefaultView();
+            view.setSize(event.size.width, event.size.height);
+            window.setView(view);
         }
     }
 }
@@ -124,8 +139,8 @@ void render_scene(RenderWindow& window, ent_world world){
 
     window.clear();
 
-    draw_line(window, screen, 0, window.getSize().y / 2, window.getSize().x, window.getSize().y / 2);
-    draw_line(window, screen, window.getSize().x / 2, 0, window.getSize().x / 2,  window.getSize().y);
+    draw_line(window, screen, 0, screen.h / 2, screen.w, screen.h / 2);
+    draw_line(window, screen, screen.w / 2, 0, screen.w / 2, screen.h);
 
     draw_text(window, surf_top, "x/y:", 0, 0);
     draw_text(window, surf_front, "x/z:", 0, 0);

@@ -50,5 +50,8 @@ int main(int argc, char* argv[]) {
 
         simulated.close();
     }
+    if(ext == ".bin"){
+
+    }
     return 0;
 }

@@ -1,5 +1,4 @@
 #include <cmath>
-#include <iostream>
 
 #include "Entities.h"
 
@@ -47,7 +46,8 @@ vec3 ent_ortho_camera::set_orientation(vec2 orientation) {
 }
 
 vec3 ent_ortho_camera::change_orientation(vec2 delta_orientation) {
-    return set_orientation(orient + delta_orientation);
+    if (orient.y + delta_orientation.y > 0 && orient.y + delta_orientation.y < PI)
+        return set_orientation(orient + delta_orientation);
 }
 
 ent_ortho_camera::ent_ortho_camera(vec3 _pos, vec2 orientation, double _scale) {
