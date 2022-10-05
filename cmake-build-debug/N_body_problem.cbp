@@ -121,6 +121,12 @@
 		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Renderer.h">
 			<Option target="N_body_problem"/>
 		</Unit>
+		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Replay.cpp">
+			<Option target="N_body_problem"/>
+		</Unit>
+		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Replay.h">
+			<Option target="N_body_problem"/>
+		</Unit>
 		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/UI.cpp">
 			<Option target="N_body_problem"/>
 		</Unit>

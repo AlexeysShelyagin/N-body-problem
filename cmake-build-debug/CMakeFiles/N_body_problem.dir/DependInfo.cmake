@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Loader.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Loader.cpp.obj"
   "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Physics.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Physics.cpp.obj"
   "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Renderer.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Renderer.cpp.obj"
+  "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Replay.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Replay.cpp.obj"
   "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/UI.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/UI.cpp.obj"
   "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Vectors.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Vectors.cpp.obj"
   "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/main.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/main.cpp.obj"

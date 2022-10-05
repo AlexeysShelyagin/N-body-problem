@@ -14,12 +14,15 @@ public:
 
     void open(std::string _name, std::string mode = "r");
     void close();
+    long long size();
 
     template < typename T >
     void write(T text);
     void write(ent_world world);
 
-    double read_double();
+    double read_double(long long cur = -1);
+    vec3 read_vec3(long long cur = -1);
+    ent_world read_world(int body_num, long long cur = -1);
 };
 
 std::string file_extension(std::string name);

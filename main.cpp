@@ -10,6 +10,7 @@
 #include "Physics.h"
 #include "Files.h"
 #include "Config.h"
+#include "Replay.h"
 
 using namespace std;
 
@@ -32,13 +33,15 @@ int main(int argc, char* argv[]) {
         ent_world world = load_simulation(SIMULATION_PATH + filename);
         if(dt != -1) world.dt = dt;
 
-        sf::RenderWindow window = sf_init_scene(1920, 1080, "test", 1);
+        sf::RenderWindow window = sf_init_scene(1920, 1080, 0, "test", DEFAULT_SCENE_SCALE);
 
         file simulated;
         if(world.save) simulated.open(OUTPUT_PATH + output_name, "wb");
+        simulated.write(world.G);
+        simulated.write((double) world.count());
 
         while (world.save && world.time < world.end_time && window.isOpen()) {
-            world = calculate_euler(world);
+            if(world.calc_method == "euler") world = calculate_euler(world);
 
             if (world.render) {
                 sf_window_event(window, world);
@@ -51,7 +54,17 @@ int main(int argc, char* argv[]) {
         simulated.close();
     }
     if(ext == ".bin"){
+        sf::RenderWindow window = sf_init_scene(1920, 1080, 1, "test", DEFAULT_SCENE_SCALE);
 
+        Replay replay(SIMULATED_PATH + output_name);
+
+        while (window.isOpen()){
+            sf_window_event(window, replay.world);
+            render_scene(window, replay.world, replay);
+
+            if(replay.frame < replay.frame_num) replay.frame++;
+            replay.load_frame(replay.frame);
+        }
     }
     return 0;
 }

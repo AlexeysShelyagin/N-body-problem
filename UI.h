@@ -25,6 +25,7 @@ public:
     window_surface(int _width = 0, int _height = 0, int _x = 0, int _y = 0);
 
     bool inside(vec2 pos);
+    void change_size(vec2 size, vec2 pos = vec2());
 };
 
 #endif //N_BODY_PROBLEM_UI_H

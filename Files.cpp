@@ -14,6 +14,14 @@ void file::close() {
     f.close();
 }
 
+long long file::size() {
+    long long pos = f.tellg();
+    f.seekg(0, std::ios::end);
+    long long size = f.tellg();
+    f.seekg(pos);
+    return size;
+}
+
 template < typename T >
 void file::write(T text) {
     f.write((char*) &text, sizeof(text));
@@ -25,19 +33,49 @@ void file::write(ent_world world) {
         write(world.bodies[i].pos.x);
         write(world.bodies[i].pos.y);
         write(world.bodies[i].pos.z);
+        write(world.bodies[i].m);
     }
-}
-
-double file::read_double() {
-    char* buffer = new char[sizeof(double)];
-    f.read(buffer, sizeof(double));
-    return *(double*)buffer;
 }
 
 template void file::write <int> (int);
 template void file::write <double> (double);
 template void file::write <std::string> (std::string);
 template void file::write <char const*> (char const*);
+
+double file::read_double(long long cur) {
+    if(cur != -1) f.seekg(cur);
+
+    char* buffer = new char[sizeof(double)];
+    f.read(buffer, sizeof(double));
+    return *(double*)buffer;
+}
+
+vec3 file::read_vec3(long long cur){
+    if(cur != -1) f.seekg(cur);
+
+    double x, y, z;
+    x = read_double();
+    y = read_double();
+    z = read_double();
+    return vec3(x, y, z);
+}
+
+ent_world file::read_world(int body_num, long long cur) {
+    if(cur != -1) f.seekg(cur);
+
+    ent_world world;
+    world.time = read_double();
+
+    vec3 pos;
+    double m;
+    for(int i = 0; i < body_num; i++){
+        pos = read_vec3();
+        m = read_double();
+        world.add_body(phys_body(pos, m));
+    }
+
+    return world;
+}
 
 std::string file_extension(std::string name){
     int i = name.length() - 1;

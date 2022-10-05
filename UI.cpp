@@ -32,3 +32,10 @@ bool window_surface::inside(vec2 pos) {
 
     return (dx > 0 && dx < w && dy > 0 && dy < h);
 }
+
+void window_surface::change_size(vec2 size, vec2 pos) {
+    w += size.x;
+    h += size.y;
+    x += pos.x;
+    y += pos.y;
+}

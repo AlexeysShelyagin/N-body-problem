@@ -5,6 +5,7 @@
 #include "Entities.h"
 #include "Config.h"
 #include "UI.h"
+#include "Replay.h"
 
 using namespace sf;
 
@@ -19,23 +20,30 @@ window_surface surf_top;
 window_surface surf_front;
 window_surface surf_side;
 window_surface surf_3d;
+window_surface surf_timeline;
 
-ent_ortho_camera camera_3d(vec3(), vec2(PI / 4, PI / 4), 0.1);
+ent_ortho_camera camera_3d(vec3(), vec2(PI / 4, PI / 4), DEFAULT_CAMERA_SCALE);
 
 vec2 pressed_pos;
 int mouse_window;
 
+vec2 window_size;
+
 int frame_count = 0, last, fps = 0;
 time_t current;
 
-RenderWindow sf_init_scene(int w, int h, std::string title, double scale){
+RenderWindow sf_init_scene(int w, int h, int mode, std::string title, double scale){
     font.loadFromFile("../Fonts/consolas.ttf");
 
     screen = window_surface(w, h);
-    surf_top = window_surface(w / 2, h / 2, w / 2, 0);
-    surf_front = window_surface(w / 2, h / 2,0, h / 2);
-    surf_side = window_surface(w / 2, h / 2, w / 2, h / 2);
-    surf_3d =  window_surface(w / 2, h / 2, 0, 0);
+    if(mode == 1) screen.h -= TIMELINE_HEIGHT;
+    surf_top = window_surface(screen.w / 2, screen.h / 2, screen.w / 2, 0);
+    surf_front = window_surface(screen.w / 2, screen.h / 2,0, screen.h / 2);
+    surf_side = window_surface(screen.w / 2, screen.h / 2, screen.w / 2, screen.h / 2);
+    surf_3d = window_surface(screen.w / 2, screen.h / 2, 0, 0);
+    surf_timeline = window_surface(w, TIMELINE_HEIGHT, 0, screen.h);
+
+    window_size = vec2(w, h);
 
     camera_3d.scale = scale;
     top.scale = scale;
@@ -85,11 +93,24 @@ void sf_window_event(RenderWindow& window, ent_world& world){
             if(mouse_window == 2) front.pos += mouse_delta;
             if(mouse_window == 3) side.pos += mouse_delta;
         }
+        /*
         if(event.type == Event::Resized) {
+
             View view = window.getDefaultView();
             view.setSize(event.size.width, event.size.height);
             window.setView(view);
+
+            vec2 dsize = vec2(event.size.width, event.size.height) - window_size;\
+            window_size += dsize;
+
+            screen.change_size(dsize, -dsize * 0.5);
+            surf_3d.change_size(dsize * 0.5, -dsize * 0.5);
+            surf_top.change_size(dsize * 0.5, vec2(0, -dsize.y * 0.5));
+            surf_front.change_size(dsize * 0.5, vec2(-dsize.x * 0.5, 0));
+            surf_side.change_size(dsize * 0.5);
+
         }
+        */
     }
 }
 
@@ -99,7 +120,7 @@ void draw_circle(RenderWindow& window, window_surface& surface, vec2 pos){
 
     double k = 0.04;
     int dc = k*0 / (1 + std::abs(k*0)) + 1;
-    circle.setFillColor(sf::Color(255, 128 * dc, 128 * dc));
+    circle.setFillColor(Color(255, 128 * dc, 128 * dc));
 
     int half_w = surface.w / 2, half_h = surface.h / 2;
 
@@ -121,15 +142,33 @@ void draw_text(RenderWindow& window, window_surface& surface, std::string txt, i
     window.draw(text);
 }
 
-void draw_line(RenderWindow& window, window_surface& surface, int x0, int y0, int x1, int y1){
+void draw_line(RenderWindow& window, window_surface& surface, int x0, int y0, int x1, int y1, vec3 color = vec3(255, 255, 255)){
     Vertex line[] = {
-        Vertex(Vector2f(x0 + surface.x, y0 + surface.y)),
-        Vertex(Vector2f(x1 + surface.x, y1 + surface.y)),
+        Vertex(Vector2f(x0 + surface.x, y0 + surface.y), Color(color.x, color.y, color.z)),
+        Vertex(Vector2f(x1 + surface.x, y1 + surface.y), Color(color.x, color.y, color.z)),
     };
     window.draw(line, 2, Lines);
 }
 
-void render_scene(RenderWindow& window, ent_world world){
+void draw_timeline(RenderWindow& window, Replay& replay){
+    draw_line(window, surf_timeline, 0, 0, surf_timeline.w, 0);
+
+    RectangleShape rect;
+    double rect_w = (double) (surf_timeline.w - 100) / replay.frame_num;
+    rect.setSize(Vector2f( rect_w,  25));
+    double val;
+    for(int i = 0; i < replay.frame_num; i++){
+        val = (replay.dt_list[i] - replay.dt_min) / replay.dt_range;
+        rect.setPosition(surf_timeline.x + 50 + rect_w * i, surf_timeline.y + 50);
+        rect.setFillColor(Color(val * 200 + 55, 0, 0));
+
+        window.draw(rect);
+    }
+
+    draw_line(window, surf_timeline, 50 + rect_w * replay.frame, 25, 50 + rect_w * replay.frame, 85);
+}
+
+void render_scene(RenderWindow& window, ent_world& world, bool show){
     if(time(&current) == last) frame_count++;
     else{
         last = time(&current);
@@ -158,5 +197,12 @@ void render_scene(RenderWindow& window, ent_world world){
         draw_circle(window, surf_3d, camera_3d.point_coords(b.pos) * camera_3d.scale);
     }
 
+    if(show) window.display();
+}
+
+void render_scene(RenderWindow& window, ent_world& world, Replay& replay){
+    render_scene(window, world, false);
+
+    draw_timeline(window, replay);
     window.display();
 }

@@ -248,6 +248,30 @@ Renderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\N_body_problem.dir\build.make CMakeFiles/N_body_problem.dir/Renderer.cpp.s
 .PHONY : Renderer.cpp.s
 
+Replay.obj: Replay.cpp.obj
+.PHONY : Replay.obj
+
+# target to build an object file
+Replay.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\N_body_problem.dir\build.make CMakeFiles/N_body_problem.dir/Replay.cpp.obj
+.PHONY : Replay.cpp.obj
+
+Replay.i: Replay.cpp.i
+.PHONY : Replay.i
+
+# target to preprocess a source file
+Replay.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\N_body_problem.dir\build.make CMakeFiles/N_body_problem.dir/Replay.cpp.i
+.PHONY : Replay.cpp.i
+
+Replay.s: Replay.cpp.s
+.PHONY : Replay.s
+
+# target to generate assembly for a file
+Replay.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\N_body_problem.dir\build.make CMakeFiles/N_body_problem.dir/Replay.cpp.s
+.PHONY : Replay.cpp.s
+
 UI.obj: UI.cpp.obj
 .PHONY : UI.obj
 
@@ -344,6 +368,9 @@ help:
 	@echo ... Renderer.obj
 	@echo ... Renderer.i
 	@echo ... Renderer.s
+	@echo ... Replay.obj
+	@echo ... Replay.i
+	@echo ... Replay.s
 	@echo ... UI.obj
 	@echo ... UI.i
 	@echo ... UI.s

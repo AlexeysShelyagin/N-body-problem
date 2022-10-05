@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/N_body_problem.dir/Loader.cpp.obj"
   "CMakeFiles/N_body_problem.dir/Physics.cpp.obj"
   "CMakeFiles/N_body_problem.dir/Renderer.cpp.obj"
+  "CMakeFiles/N_body_problem.dir/Replay.cpp.obj"
   "CMakeFiles/N_body_problem.dir/UI.cpp.obj"
   "CMakeFiles/N_body_problem.dir/Vectors.cpp.obj"
   "CMakeFiles/N_body_problem.dir/main.cpp.obj"
