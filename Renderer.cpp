@@ -29,6 +29,7 @@ int mouse_window;
 
 vec2 window_size;
 
+bool window_opened = false;
 int frame_count = 0, last, fps = 0;
 time_t current;
 
@@ -50,7 +51,17 @@ RenderWindow sf_init_scene(int w, int h, int mode, std::string title, double sca
     front.scale = scale;
     side.scale = scale;
 
+    window_opened = true;
     return RenderWindow(VideoMode(w, h), title);
+}
+
+bool sf_window_opened(){
+    return window_opened;
+}
+
+void sf_close_window(RenderWindow& window){
+    window.close();
+    window_opened = false;
 }
 
 void sf_window_event(RenderWindow& window, ent_world& world){
@@ -58,7 +69,7 @@ void sf_window_event(RenderWindow& window, ent_world& world){
 
     Event event;
     while (window.pollEvent(event)){
-        if (event.type == Event::Closed) window.close();
+        if (event.type == Event::Closed) sf_close_window(window);
         if (event.type == Event::MouseWheelScrolled){
             if (event.mouseWheelScroll.wheel == Mouse::VerticalWheel)
                 if(surf_top.inside(mouse_pos) || surf_front.inside(mouse_pos) || surf_side.inside(mouse_pos)){

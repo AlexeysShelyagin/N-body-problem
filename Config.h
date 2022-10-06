@@ -3,7 +3,7 @@
 
 #include <map>
 
-#define DEFAULT_FILE "test6.bin"
+#define DEFAULT_FILE "test6.json"
 
 #define SIMULATION_PATH "../Simulations/"
 #define SIMULATED_PATH "../Simulated/"
