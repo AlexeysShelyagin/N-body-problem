@@ -1,3 +1,3 @@
-C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir
-C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir
+C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/rebuild_cache.dir

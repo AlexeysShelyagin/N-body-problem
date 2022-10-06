@@ -7,12 +7,12 @@ set(CMAKE_DEPENDS_GENERATOR "MinGW Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "C:/Program Files/CodeBlocks/MinGW/lib/cmake/SFML/SFMLConfig.cmake"
-  "C:/Program Files/CodeBlocks/MinGW/lib/cmake/SFML/SFMLConfigDependencies.cmake"
-  "C:/Program Files/CodeBlocks/MinGW/lib/cmake/SFML/SFMLConfigVersion.cmake"
-  "C:/Program Files/CodeBlocks/MinGW/lib/cmake/SFML/SFMLStaticTargets-debug.cmake"
-  "C:/Program Files/CodeBlocks/MinGW/lib/cmake/SFML/SFMLStaticTargets-release.cmake"
-  "C:/Program Files/CodeBlocks/MinGW/lib/cmake/SFML/SFMLStaticTargets.cmake"
+  "C:/Libraries/SFML/lib/cmake/SFML/SFMLConfig.cmake"
+  "C:/Libraries/SFML/lib/cmake/SFML/SFMLConfigDependencies.cmake"
+  "C:/Libraries/SFML/lib/cmake/SFML/SFMLConfigVersion.cmake"
+  "C:/Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets-debug.cmake"
+  "C:/Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets-release.cmake"
+  "C:/Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets.cmake"
   "C:/Program Files/JetBrains/CLion 2021.2.3/bin/cmake/win/share/cmake-3.20/Modules/CMakeCInformation.cmake"
   "C:/Program Files/JetBrains/CLion 2021.2.3/bin/cmake/win/share/cmake-3.20/Modules/CMakeCXXInformation.cmake"
   "C:/Program Files/JetBrains/CLion 2021.2.3/bin/cmake/win/share/cmake-3.20/Modules/CMakeCommonLanguageInclude.cmake"

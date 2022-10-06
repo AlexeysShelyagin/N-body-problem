@@ -8,15 +8,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Entities.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Entities.cpp.obj"
-  "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Files.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Files.cpp.obj"
-  "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Loader.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Loader.cpp.obj"
-  "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Physics.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Physics.cpp.obj"
-  "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Renderer.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Renderer.cpp.obj"
-  "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Replay.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Replay.cpp.obj"
-  "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/UI.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/UI.cpp.obj"
-  "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/Vectors.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Vectors.cpp.obj"
-  "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/main.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/main.cpp.obj"
+  "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Entities.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Entities.cpp.obj"
+  "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Files.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Files.cpp.obj"
+  "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Loader.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Loader.cpp.obj"
+  "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Physics.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Physics.cpp.obj"
+  "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Renderer.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Renderer.cpp.obj"
+  "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Replay.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Replay.cpp.obj"
+  "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/UI.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/UI.cpp.obj"
+  "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Vectors.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Vectors.cpp.obj"
+  "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/main.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -27,9 +27,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "C:/Program"
-  "../Files/CodeBlocks/MinGW/include"
-  "C:/Program Files/CodeBlocks/MinGW/include"
+  "C:/Libraries/SFML/include"
   )
 
 # The set of dependency files which are needed:
