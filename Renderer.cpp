@@ -88,7 +88,6 @@ void sf_window_event(RenderWindow& window, ent_world& world){
             if(surf_side.inside(mouse_pos)) mouse_window = 3;
             if(surf_3d.inside(mouse_pos)) mouse_window = 0;
 
-            std::cout << mouse_pos.x << ' ' << mouse_pos.y << '\n';
         }
         if (Mouse::isButtonPressed(sf::Mouse::Left)){
             vec2 mouse_delta = mouse_pos - pressed_pos;

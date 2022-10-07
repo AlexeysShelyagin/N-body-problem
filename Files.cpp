@@ -1,5 +1,7 @@
 #include "Files.h"
 
+#include <iostream>
+
 file::file(std::string _name, std::string mode) {
     open(_name, mode);
 }
@@ -14,7 +16,7 @@ void file::close() {
     f.close();
 }
 
-long long file::size() {
+unsigned long long file::size() {
     long long pos = f.tellg();
     f.seekg(0, std::ios::end);
     long long size = f.tellg();
@@ -42,8 +44,12 @@ template void file::write <double> (double);
 template void file::write <std::string> (std::string);
 template void file::write <char const*> (char const*);
 
+void file::set_cur(unsigned long long cur) {
+    f.seekg(cur, std::ios::beg);
+}
+
 double file::read_double(long long cur) {
-    if(cur != -1) f.seekg(cur);
+    if(cur != -1) set_cur(cur);
 
     char* buffer = new char[sizeof(double)];
     f.read(buffer, sizeof(double));
@@ -51,7 +57,7 @@ double file::read_double(long long cur) {
 }
 
 vec3 file::read_vec3(long long cur){
-    if(cur != -1) f.seekg(cur);
+    if(cur != -1) set_cur(cur);
 
     double x, y, z;
     x = read_double();
@@ -61,7 +67,7 @@ vec3 file::read_vec3(long long cur){
 }
 
 ent_world file::read_world(int body_num, long long cur) {
-    if(cur != -1) f.seekg(cur);
+    if(cur != -1) set_cur(cur);
 
     ent_world world;
     world.time = read_double();

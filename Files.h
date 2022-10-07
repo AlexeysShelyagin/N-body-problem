@@ -14,11 +14,13 @@ public:
 
     void open(std::string _name, std::string mode = "r");
     void close();
-    long long size();
+    unsigned long long size();
 
     template < typename T >
     void write(T text);
     void write(ent_world world);
+
+    void set_cur(unsigned long long cur);
 
     double read_double(long long cur = -1);
     vec3 read_vec3(long long cur = -1);

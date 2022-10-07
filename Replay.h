@@ -8,11 +8,13 @@
 
 class Replay{
 public:
-    file world_file;
     ent_world world;
+    file world_file;
     std::vector < double > dt_list;
+    std::vector < int > frame_desity;
     double dt_min = INT_MAX, dt_range;
     int body_num;
+    int max_dens;
 
     int frame = 0, frame_num;
 

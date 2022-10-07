@@ -2,6 +2,7 @@
 #include "include/rapidjson/istreamwrapper.h"
 #include <fstream>
 #include <time.h>
+#include <iostream>
 
 #include "Entities.h"
 #include "Config.h"
@@ -70,7 +71,7 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
         current_m = m + (random_double() - 0.5) * 2 * dm;
 
         vel = ang_vec3(random_double() * 2 * PI, random_double() * PI);
-        vel *= sqrt(1.2 * (world.G * M * M) / (r * current_m * n));
+        vel *= sqrt(0.6 * (world.G * M) / r);
 
         world.add_body(phys_body(
             pos + center,
@@ -79,6 +80,7 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
             load_vector(body_file, "velocity") + vel
         ));
     }
+    std::cout << vel.mod();
 }
 
 ent_world load_simulation(std::string file_path){

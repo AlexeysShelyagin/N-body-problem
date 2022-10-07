@@ -42,80 +42,80 @@ CMakeFiles/N_body_problem.dir/Physics.cpp.obj: \
  ../Physics.cpp \
  ../Vectors.h
 CMakeFiles/N_body_problem.dir/Renderer.cpp.obj: \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Config.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/BlendMode.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/CircleShape.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Color.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/ConvexShape.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Drawable.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Export.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Font.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Glsl.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Glsl.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Glyph.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Image.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/PrimitiveType.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Rect.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Rect.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/RectangleShape.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/RenderStates.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/RenderTarget.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/RenderTexture.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/RenderWindow.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Shader.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Shape.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Sprite.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Text.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Texture.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Transform.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Transformable.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Vertex.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/VertexArray.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/VertexBuffer.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/View.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Clock.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Err.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Export.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/FileInputStream.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/InputStream.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Lock.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/MemoryInputStream.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Mutex.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/NonCopyable.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Sleep.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/String.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/String.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Thread.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Thread.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/ThreadLocal.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/ThreadLocalPtr.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/ThreadLocalPtr.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Time.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Utf.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Utf.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Vector2.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Vector2.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Vector3.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Vector3.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Clipboard.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Context.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/ContextSettings.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Cursor.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Event.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Export.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/GlResource.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Joystick.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Keyboard.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Mouse.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Sensor.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Touch.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/VideoMode.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Window.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/WindowHandle.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/WindowStyle.hpp \
+ C:/Libraries/SFML/include/SFML/Config.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/BlendMode.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/CircleShape.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Color.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/ConvexShape.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Drawable.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Export.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Font.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Glsl.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Glsl.inl \
+ C:/Libraries/SFML/include/SFML/Graphics/Glyph.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Image.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/PrimitiveType.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Rect.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Rect.inl \
+ C:/Libraries/SFML/include/SFML/Graphics/RectangleShape.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/RenderStates.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/RenderTarget.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/RenderTexture.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/RenderWindow.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Shader.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Shape.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Sprite.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Text.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Texture.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Transform.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Transformable.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Vertex.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/VertexArray.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/VertexBuffer.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/View.hpp \
+ C:/Libraries/SFML/include/SFML/System.hpp \
+ C:/Libraries/SFML/include/SFML/System/Clock.hpp \
+ C:/Libraries/SFML/include/SFML/System/Err.hpp \
+ C:/Libraries/SFML/include/SFML/System/Export.hpp \
+ C:/Libraries/SFML/include/SFML/System/FileInputStream.hpp \
+ C:/Libraries/SFML/include/SFML/System/InputStream.hpp \
+ C:/Libraries/SFML/include/SFML/System/Lock.hpp \
+ C:/Libraries/SFML/include/SFML/System/MemoryInputStream.hpp \
+ C:/Libraries/SFML/include/SFML/System/Mutex.hpp \
+ C:/Libraries/SFML/include/SFML/System/NonCopyable.hpp \
+ C:/Libraries/SFML/include/SFML/System/Sleep.hpp \
+ C:/Libraries/SFML/include/SFML/System/String.hpp \
+ C:/Libraries/SFML/include/SFML/System/String.inl \
+ C:/Libraries/SFML/include/SFML/System/Thread.hpp \
+ C:/Libraries/SFML/include/SFML/System/Thread.inl \
+ C:/Libraries/SFML/include/SFML/System/ThreadLocal.hpp \
+ C:/Libraries/SFML/include/SFML/System/ThreadLocalPtr.hpp \
+ C:/Libraries/SFML/include/SFML/System/ThreadLocalPtr.inl \
+ C:/Libraries/SFML/include/SFML/System/Time.hpp \
+ C:/Libraries/SFML/include/SFML/System/Utf.hpp \
+ C:/Libraries/SFML/include/SFML/System/Utf.inl \
+ C:/Libraries/SFML/include/SFML/System/Vector2.hpp \
+ C:/Libraries/SFML/include/SFML/System/Vector2.inl \
+ C:/Libraries/SFML/include/SFML/System/Vector3.hpp \
+ C:/Libraries/SFML/include/SFML/System/Vector3.inl \
+ C:/Libraries/SFML/include/SFML/Window.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Clipboard.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Context.hpp \
+ C:/Libraries/SFML/include/SFML/Window/ContextSettings.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Cursor.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Event.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Export.hpp \
+ C:/Libraries/SFML/include/SFML/Window/GlResource.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Joystick.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Keyboard.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Mouse.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Sensor.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Touch.hpp \
+ C:/Libraries/SFML/include/SFML/Window/VideoMode.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Window.hpp \
+ C:/Libraries/SFML/include/SFML/Window/WindowHandle.hpp \
+ C:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp \
  ../Config.h \
  ../Entities.h \
  ../Files.h \
@@ -137,80 +137,80 @@ CMakeFiles/N_body_problem.dir/Vectors.cpp.obj: \
  ../Vectors.cpp \
  ../Vectors.h
 CMakeFiles/N_body_problem.dir/main.cpp.obj: \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Config.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/BlendMode.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/CircleShape.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Color.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/ConvexShape.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Drawable.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Export.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Font.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Glsl.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Glsl.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Glyph.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Image.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/PrimitiveType.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Rect.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Rect.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/RectangleShape.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/RenderStates.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/RenderTarget.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/RenderTexture.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/RenderWindow.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Shader.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Shape.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Sprite.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Text.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Texture.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Transform.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Transformable.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/Vertex.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/VertexArray.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/VertexBuffer.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Graphics/View.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Clock.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Err.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Export.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/FileInputStream.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/InputStream.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Lock.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/MemoryInputStream.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Mutex.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/NonCopyable.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Sleep.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/String.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/String.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Thread.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Thread.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/ThreadLocal.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/ThreadLocalPtr.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/ThreadLocalPtr.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Time.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Utf.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Utf.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Vector2.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Vector2.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Vector3.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/System/Vector3.inl \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Clipboard.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Context.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/ContextSettings.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Cursor.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Event.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Export.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/GlResource.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Joystick.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Keyboard.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Mouse.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Sensor.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Touch.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/VideoMode.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/Window.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/WindowHandle.hpp \
- C:/Program\ Files/CodeBlocks/MinGW/include/SFML/Window/WindowStyle.hpp \
+ C:/Libraries/SFML/include/SFML/Config.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/BlendMode.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/CircleShape.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Color.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/ConvexShape.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Drawable.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Export.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Font.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Glsl.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Glsl.inl \
+ C:/Libraries/SFML/include/SFML/Graphics/Glyph.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Image.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/PrimitiveType.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Rect.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Rect.inl \
+ C:/Libraries/SFML/include/SFML/Graphics/RectangleShape.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/RenderStates.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/RenderTarget.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/RenderTexture.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/RenderWindow.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Shader.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Shape.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Sprite.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Text.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Texture.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Transform.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Transformable.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/Vertex.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/VertexArray.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/VertexBuffer.hpp \
+ C:/Libraries/SFML/include/SFML/Graphics/View.hpp \
+ C:/Libraries/SFML/include/SFML/System.hpp \
+ C:/Libraries/SFML/include/SFML/System/Clock.hpp \
+ C:/Libraries/SFML/include/SFML/System/Err.hpp \
+ C:/Libraries/SFML/include/SFML/System/Export.hpp \
+ C:/Libraries/SFML/include/SFML/System/FileInputStream.hpp \
+ C:/Libraries/SFML/include/SFML/System/InputStream.hpp \
+ C:/Libraries/SFML/include/SFML/System/Lock.hpp \
+ C:/Libraries/SFML/include/SFML/System/MemoryInputStream.hpp \
+ C:/Libraries/SFML/include/SFML/System/Mutex.hpp \
+ C:/Libraries/SFML/include/SFML/System/NonCopyable.hpp \
+ C:/Libraries/SFML/include/SFML/System/Sleep.hpp \
+ C:/Libraries/SFML/include/SFML/System/String.hpp \
+ C:/Libraries/SFML/include/SFML/System/String.inl \
+ C:/Libraries/SFML/include/SFML/System/Thread.hpp \
+ C:/Libraries/SFML/include/SFML/System/Thread.inl \
+ C:/Libraries/SFML/include/SFML/System/ThreadLocal.hpp \
+ C:/Libraries/SFML/include/SFML/System/ThreadLocalPtr.hpp \
+ C:/Libraries/SFML/include/SFML/System/ThreadLocalPtr.inl \
+ C:/Libraries/SFML/include/SFML/System/Time.hpp \
+ C:/Libraries/SFML/include/SFML/System/Utf.hpp \
+ C:/Libraries/SFML/include/SFML/System/Utf.inl \
+ C:/Libraries/SFML/include/SFML/System/Vector2.hpp \
+ C:/Libraries/SFML/include/SFML/System/Vector2.inl \
+ C:/Libraries/SFML/include/SFML/System/Vector3.hpp \
+ C:/Libraries/SFML/include/SFML/System/Vector3.inl \
+ C:/Libraries/SFML/include/SFML/Window.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Clipboard.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Context.hpp \
+ C:/Libraries/SFML/include/SFML/Window/ContextSettings.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Cursor.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Event.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Export.hpp \
+ C:/Libraries/SFML/include/SFML/Window/GlResource.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Joystick.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Keyboard.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Mouse.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Sensor.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Touch.hpp \
+ C:/Libraries/SFML/include/SFML/Window/VideoMode.hpp \
+ C:/Libraries/SFML/include/SFML/Window/Window.hpp \
+ C:/Libraries/SFML/include/SFML/Window/WindowHandle.hpp \
+ C:/Libraries/SFML/include/SFML/Window/WindowStyle.hpp \
  ../Config.h \
  ../Entities.h \
  ../Files.h \

@@ -52,11 +52,12 @@ int main(int argc, char* argv[]) {
         simulated.write(world.G);
         simulated.write((double) world.count());
 
+        int now = (int) time(0), st = now;
         time_t timer = time(0);
         tm* start = localtime(&timer);
         cout << "dt = " << world.dt << '\n';
         cout << "started at " << start -> tm_hour << "." << start -> tm_min << "." << start -> tm_sec << "\n";
-        int ready_part, percent = 0;
+        int ready_part, percent = 0, last_t = 0;
 
         int iteration = 0;
         while (sf_window_opened()) {
@@ -69,20 +70,31 @@ int main(int argc, char* argv[]) {
 
             if (world.save){
                 simulated.write(world);
-                if(world.time >= world.end_time){
-                    sf_close_window(window);
-                }
+                if (!world.render) {
+                    if (world.time >= world.end_time) {
+                        sf_close_window(window);
+                    }
 
-                ready_part = world.time / world.end_time * 100;
-                if(iteration % 100 == 0 || ready_part > percent){
-                    percent = ready_part;
-                    cout << "[";
-                    for(int i = 0; i < percent / 10; i++) cout << '*';
-                    for(int i = percent / 10; i < 10; i++) cout << '.';
-                    cout << "] " << percent << "%    ";
-                    cout << world.time << " of " << world.end_time;
-                    cout << "\r";
+                    ready_part = world.time / world.end_time * 100;
+                    now = time(0);
+                    int remaining_time = (now - st) * (world.end_time / world.time - 1);
 
+                    if (last_t != remaining_time) {
+                        percent = ready_part;
+                        last_t = remaining_time;
+
+                        cout << "[";
+                        for (int i = 0; i < percent / 10; i++) cout << '*';
+                        for (int i = percent / 10; i < 10; i++) cout << '.';
+                        cout << "] " << percent << "%    ";
+                        cout << world.time << " of " << world.end_time;
+
+                        cout << "    time remaining: ";
+                        cout << remaining_time / 3600 << "h ";
+                        cout << remaining_time / 60 % 60 << "m ";
+                        cout << remaining_time % 60 << "s ";
+                        cout << "\r";
+                    }
                 }
             }
             iteration++;
@@ -90,21 +102,16 @@ int main(int argc, char* argv[]) {
 
         simulated.close();
 
-        timer = time(0);
-        tm* end = localtime(&timer) ;
-        cout << "\nCalculation time: ";
-        cout << end -> tm_hour << "h ";
-        cout << end -> tm_min << "m ";
-        cout << end -> tm_sec << "s ";
-        cout << "\nCalculation time: ";
-        cout << start -> tm_hour << "h ";
-        cout << start -> tm_min << "m ";
-        cout << start -> tm_sec << "s ";
+        now = time(0);
+        cout << "\nCalculating time: ";
+        cout << (now - st) / 3600 << "h ";
+        cout << (now - st) / 60 % 60 << "m ";
+        cout << (now - st) % 60 << "s ";
     }
     if(ext == ".bin"){
         sf::RenderWindow window = sf_init_scene(1920, 1080, 1, "test", DEFAULT_SCENE_SCALE);
 
-        Replay replay(SIMULATED_PATH + output_name);
+        Replay replay(SIMULATED_PATH + filename);
 
         while (window.isOpen()){
             sf_window_event(window, replay.world);
