@@ -62,7 +62,7 @@ int main(int argc, char* argv[]) {
         int iteration = 0;
         while (sf_window_opened()) {
             if(world.calc_method == "euler") world = calculate_euler(world);
-
+            if(world.calc_method == "rungekutte") world = calculate_euler(world);
             if (world.render) {
                 sf_window_event(window, world);
                 render_scene(window, world);
