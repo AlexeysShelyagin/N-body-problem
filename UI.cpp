@@ -14,6 +14,7 @@ vec2 base_view::coords(vec3 obj_pos) {
         case 1: return vec2(obj_pos.x, obj_pos.z) * scale + pos;
         case 2: return vec2(obj_pos.y, obj_pos.z) * scale + pos;
     }
+    return vec2();
 }
 
 window_surface::window_surface(std::string _name) {

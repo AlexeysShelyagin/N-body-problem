@@ -3,6 +3,8 @@
 
 #include <map>
 
+///------------------------Default file paths------------------------
+
 #define DEFAULT_FILE "test6.bin"
 
 #define SIMULATION_PATH "../Simulations/"
@@ -11,12 +13,22 @@
 #define OUTPUT_PATH "../Simulated/"
 #define DEFAULT_OUTPUT "test6.bin"
 
+///------------------------------------------------------------------
+
+
+///------------------Viewport default dimensions---------------------
+
 #define FONT_HEIGHT 16
 #define DEFAULT_CAMERA_SCALE 0.1
 #define DEFAULT_SCENE_SCALE 0.1
 #define TIMELINE_HEIGHT 100
 #define TIMELINE_X_INDENT 50
 #define TIMELINE_Y_INDENT 50
+
+///------------------------------------------------------------------
+
+
+///------------------Loader bodies types values-----------------------
 
 static std::map < std::string, int > entities_list {
         {"phys_body", 0},
@@ -30,5 +42,7 @@ static std::map < std::string, bool > active_list {
         {"static_body", 0},
         {"relative_body", 1}
 };
+
+///------------------------------------------------------------------
 
 #endif //CONFIG_H

@@ -8,6 +8,29 @@
 #include "Entities.h"
 #include "Files.h"
 
+///--------------------Console interface class-----------------------
+/*
+ *  filename - name of file which program loads
+ *
+ *  output_name - name of simulated output binary file
+ *
+ *  dt - delta time, gets from console or world
+ *
+ *  end_time - end time of simulation, gets from world
+ *
+ *  render - render mode flag
+ *      -1 - use default file mode
+ *      0 - disable rendering
+ *      1 - enable rendering
+ *
+ *  save - output mode flag
+ *      -1 - use default file mode
+ *      0 - don't save anything
+ *      1 - save simulated file
+ *
+ *  ext - opened file extension
+ */
+
 class Console_launch{
 public:
     std::string filename = DEFAULT_FILE;
@@ -30,5 +53,6 @@ public:
     void update_progress(double now_time, bool rewrite = false);
     void calculation_end_info();
 };
+///-------------------------------------------------------------------
 
 #endif //N_BODY_PROBLEM_CONSOLE_H

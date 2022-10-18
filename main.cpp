@@ -2,7 +2,6 @@
 #include <iomanip>
 #include <SFML/Graphics.hpp>
 #include <windows.h>
-#include <ctime>
 
 #include "Vectors.h"
 #include "Entities.h"
