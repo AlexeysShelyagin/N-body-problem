@@ -5,7 +5,7 @@
     "render": true,
     "save": true,
     "dt": 100,
-    "end time": 5e5
+    "end time": 1e6
   },
   "entities":[
      {

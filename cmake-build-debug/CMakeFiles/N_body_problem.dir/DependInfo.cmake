@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Console.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Console.cpp.obj"
   "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Entities.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Entities.cpp.obj"
   "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Files.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Files.cpp.obj"
   "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Loader.cpp" "C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir/Loader.cpp.obj"

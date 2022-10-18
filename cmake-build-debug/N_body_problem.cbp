@@ -87,6 +87,12 @@
 		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Config.h">
 			<Option target="N_body_problem"/>
 		</Unit>
+		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Console.cpp">
+			<Option target="N_body_problem"/>
+		</Unit>
+		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Console.h">
+			<Option target="N_body_problem"/>
+		</Unit>
 		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Entities.cpp">
 			<Option target="N_body_problem"/>
 		</Unit>
