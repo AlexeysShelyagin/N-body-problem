@@ -80,7 +80,6 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
             load_vector(body_file, "velocity") + vel
         ));
     }
-    std::cout << vel.mod();
 }
 
 ent_world load_simulation(std::string file_path){

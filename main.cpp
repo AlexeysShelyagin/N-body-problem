@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
     Event_result event;
 
     if (ext == ".json") {
-        cout << "loading SIMULATION_PATH + filename ...\n";
+        cout << "loading " << SIMULATION_PATH + filename << " ...\n";
         ent_world world = load_simulation(SIMULATION_PATH + filename);
         cout << "load successfully\n";
 

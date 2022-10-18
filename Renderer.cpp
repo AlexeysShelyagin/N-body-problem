@@ -163,6 +163,9 @@ Event_result sf_window_event(RenderWindow& window, ent_world& world){
             res.type = "m_p";   //mouse_pressed
             res.value = mouse_window;
         }
+        if (event.type == Event::MouseButtonReleased){
+            mouse_window = -1;
+        }
         if (Mouse::isButtonPressed(sf::Mouse::Left)){
             vec2 mouse_delta = mouse_pos - pressed_pos;
             pressed_pos = mouse_pos;
@@ -186,21 +189,20 @@ Event_result sf_window_event(RenderWindow& window, ent_world& world){
     return res;
 }
 
-void draw_circle(RenderWindow& window, window_surface& surface, vec2 pos){
-    CircleShape circle(2);
-    circle.setFillColor(sf::Color(255, 255, 255));
-
-    double k = 0.04;
-    int dc = k*0 / (1 + std::abs(k*0)) + 1;
-    circle.setFillColor(Color(255, 128 * dc, 128 * dc));
+void draw_circle(RenderWindow& window, window_surface& surface, vec2 pos, std::vector < std::vector < int > > &body_buff){
+    CircleShape circle(1);
 
     int half_w = surface.w / 2, half_h = surface.h / 2;
 
-    if(pos.x > -half_w && pos.y > -half_h && pos.x < half_w && pos.y < half_h)
-        circle.setPosition(Vector2f(
-            pos.x + surface.x + half_w,
-            pos.y + surface.y + half_h
-        ));
+    int screen_x = 0, screen_y = 0, num;
+    if(pos.x > -half_w && pos.y > -half_h && pos.x < half_w && pos.y < half_h) {
+        screen_x = pos.x + surface.x + half_w;
+        screen_y = pos.y + surface.y + half_h;
+        circle.setPosition(Vector2f(screen_x, screen_y));
+        num = body_buff[screen_x / 2][screen_y / 2]++;
+    }
+    circle.setFillColor(Color(HSV(5, int(55 * exp(-num * 0.5)) + 10, 95)));
+
     window.draw(circle);
 }
 
@@ -248,6 +250,8 @@ void render_scene(RenderWindow& window, ent_world& world, std::string &filename,
         frame_count = 0;
     }
 
+    std::vector < std::vector < int > > body_buff(screen.w / 2, std::vector < int > (screen.h / 2));
+
     window.clear();
 
     draw_line(window, screen, 0, screen.h / 2, screen.w, screen.h / 2);
@@ -265,11 +269,11 @@ void render_scene(RenderWindow& window, ent_world& world, std::string &filename,
     for (int i = 0; i < world.count(); i++){
         phys_body b = world.bodies[i];
 
-        draw_circle(window, surf_top, top.coords(b.pos));
-        draw_circle(window, surf_front, front.coords(b.pos));
-        draw_circle(window, surf_side, side.coords(b.pos));
+        draw_circle(window, surf_top, top.coords(b.pos), body_buff);
+        draw_circle(window, surf_front, front.coords(b.pos), body_buff);
+        draw_circle(window, surf_side, side.coords(b.pos), body_buff);
 
-        draw_circle(window, surf_3d, camera_3d.point_coords(b.pos) * camera_3d.scale);
+        draw_circle(window, surf_3d, camera_3d.point_coords(b.pos) * camera_3d.scale, body_buff);
     }
 
     if(show) window.display();
