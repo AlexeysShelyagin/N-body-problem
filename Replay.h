@@ -11,7 +11,7 @@ public:
     ent_world world;
     file world_file;
     std::vector < double > dt_list;
-    std::vector < int > frame_desity;
+    std::vector < int > frame_density;
     double dt_min = INT_MAX, dt_range;
     int body_num;
     int max_dens;

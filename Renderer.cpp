@@ -33,6 +33,61 @@ bool window_opened = false;
 int frame_count = 0, last, fps = 0;
 time_t current;
 
+Color HSV(double H, double S, double V){
+    S /= 100;
+    V /= 100;
+
+    double f, p, t, q;
+    double r, g, b;
+
+    if(H >= 360) H = 0;
+    H = H / 60;
+    int i = (int) trunc(H);
+    f = H - i;
+
+    p = V * (1.0 - S);
+    q = V * (1.0 - (S * f));
+    t = V * (1.0 - (S * (1.0 - f)));
+
+    switch (i) {
+        case 0:
+            r = V;
+            g = t;
+            b = p;
+            break;
+        case 1:
+            r = q;
+            g = V;
+            b = p;
+            break;
+        case 2:
+            r = p;
+            g = V;
+            b = t;
+            break;
+        case 3:
+            r = p;
+            g = q;
+            b = V;
+            break;
+        case 4:
+            r = t;
+            g = p;
+            b = V;
+            break;
+        default:
+            r = V;
+            g = p;
+            b = q;
+    }
+
+    int R = r * 255;
+    int G = g * 255;
+    int B = b * 255;
+
+    return Color(R, G, B);
+}
+
 RenderWindow sf_init_scene(int w, int h, int mode, std::string title, double scale){
     font.loadFromFile("../Fonts/consolas.ttf");
 
@@ -170,7 +225,7 @@ void draw_timeline(RenderWindow& window, Replay& replay){
     for(int i = 0; i < replay.frame_num; i++){
         val = (replay.dt_list[i] - replay.dt_min) / replay.dt_range;
         rect.setPosition(surf_timeline.x + 50 + rect_w * i, surf_timeline.y + 50);
-        rect.setFillColor(Color(val * 200 + 55, 0, 0));
+        rect.setFillColor(Color(HSV(180 - val * 180, 80, 100)));
 
         window.draw(rect);
     }

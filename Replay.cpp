@@ -15,29 +15,23 @@ Replay::Replay(std::string filename) {
     frame_num = (world_file.size() / sizeof(double) - 2) / (4 * body_num + 1);
     dt_list.resize(frame_num);
 
-    double last_t = 0, T, dt_max = 0;
+    double last_t = 0, T, dt_max = 0, end_t = 0;
     for(int i = 0; i < frame_num; i++){
         T = world_file.read_double(sizeof(double) * (2 + (4 * body_num + 1) * i));
         dt_list[i] = T - last_t;
         last_t = T;
+        end_t += dt_list[i];
 
         dt_max = std::max(dt_max, dt_list[i]);
         dt_min = std::min(dt_min, dt_list[i]);
     }
-/*
-    T = 0;
-    max_dens = 0;
-    int n;
+
+    frame_density.resize(frame_num);
     for(int i = 0; i < frame_num; i++){
-        n = 0;
-        while(T += dt_list[i] < (frame_desity.size() + 1) * dt_max){
-            i++;
-            n++;
-        }
-        frame_desity.push_back(n);
-        max_dens = std::max(n, max_dens);
+        frame_density[i] = dt_list[i] / dt_max;
+        max_dens = std::max(max_dens, frame_density[i]);
     }
-*/
+
     dt_range = dt_max - dt_min;
 }
 

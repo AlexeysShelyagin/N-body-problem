@@ -12,8 +12,8 @@
 #define DEFAULT_OUTPUT "test6.bin"
 
 #define FONT_HEIGHT 16
-#define DEFAULT_CAMERA_SCALE 0.01
-#define DEFAULT_SCENE_SCALE 0.01
+#define DEFAULT_CAMERA_SCALE 0.1
+#define DEFAULT_SCENE_SCALE 0.1
 #define TIMELINE_HEIGHT 100
 
 static std::map < std::string, int > entities_list {
