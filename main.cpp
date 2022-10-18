@@ -36,8 +36,10 @@ int main(int argc, char* argv[]) {
     }
     string ext = file_extension(filename);
 
+    Event_result event;
+
     if (ext == ".json") {
-        cout << "loading SIMULATION_PATH + filename ...\n";
+        cout << "loading " << SIMULATION_PATH + filename << " ...\n";
         ent_world world = load_simulation(SIMULATION_PATH + filename);
         cout << "load successfully\n";
 
@@ -70,8 +72,9 @@ int main(int argc, char* argv[]) {
                     world = calculate_verlet(world);
             }
             if (world.render) {
-                sf_window_event(window, world);
-                render_scene(window, world);
+                event = sf_window_event(window, world);
+                event.change_simulation(world);
+                render_scene(window, world, filename);
             }
 
             if (world.save){
@@ -120,11 +123,11 @@ int main(int argc, char* argv[]) {
         Replay replay(SIMULATED_PATH + filename);
 
         while (window.isOpen()){
-            sf_window_event(window, replay.world);
-            render_scene(window, replay.world, replay);
+            event = sf_window_event(window, replay.world);
+            event.change_replay(replay);
+            render_scene(window, replay.world, filename, replay);
 
-            if(replay.frame < replay.frame_num) replay.frame++;
-            replay.load_frame(replay.frame);
+            replay.next_frame();
         }
     }
     return 0;

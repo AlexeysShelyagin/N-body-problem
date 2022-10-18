@@ -119,22 +119,38 @@ void sf_close_window(RenderWindow& window){
     window_opened = false;
 }
 
-void sf_window_event(RenderWindow& window, ent_world& world){
+Event_result sf_window_event(RenderWindow& window, ent_world& world){
+    Event_result res;
     vec2 mouse_pos(Mouse::getPosition(window).x, Mouse::getPosition(window).y);
 
     Event event;
     while (window.pollEvent(event)){
         if (event.type == Event::Closed) sf_close_window(window);
+
         if (event.type == Event::MouseWheelScrolled){
-            if (event.mouseWheelScroll.wheel == Mouse::VerticalWheel)
-                if(surf_top.inside(mouse_pos) || surf_front.inside(mouse_pos) || surf_side.inside(mouse_pos)){
+            if (event.mouseWheelScroll.wheel == Mouse::VerticalWheel) {
+                if (surf_top.inside(mouse_pos) || surf_front.inside(mouse_pos) || surf_side.inside(mouse_pos)) {
                     double scale = top.scale * (1 + event.mouseWheelScroll.delta);
                     top.scale = front.scale = side.scale = scale;
                 }
-                if(surf_3d.inside(mouse_pos)) camera_3d.scale *= 1 + event.mouseWheelScroll.delta;
-            if (event.mouseWheelScroll.wheel == Mouse::HorizontalWheel)
-                world.dt *= 1 + event.mouseWheelScroll.delta;
+                if (surf_3d.inside(mouse_pos)) {
+                    camera_3d.scale *= 1 + event.mouseWheelScroll.delta;
+                }
+                res.type = "v_w";   //vertical_wheel
+                res.value = event.mouseWheelScroll.delta;
+            }
+            if (event.mouseWheelScroll.wheel == Mouse::HorizontalWheel){
+                res.type = "h_w";   //horizontal_wheel
+                res.value = event.mouseWheelScroll.delta;
+            }
         }
+
+        if(event.type == Event::KeyPressed){
+            if(event.key.code == Keyboard::Space){
+                res.type = "space"; //space key
+            }
+        }
+
         if (event.type == Event::MouseButtonPressed){
             pressed_pos = mouse_pos;
 
@@ -142,7 +158,13 @@ void sf_window_event(RenderWindow& window, ent_world& world){
             if(surf_front.inside(mouse_pos)) mouse_window = 2;
             if(surf_side.inside(mouse_pos)) mouse_window = 3;
             if(surf_3d.inside(mouse_pos)) mouse_window = 0;
+            if(surf_timeline.inside(mouse_pos)) mouse_window = 4;
 
+            res.type = "m_p";   //mouse_pressed
+            res.value = mouse_window;
+        }
+        if (event.type == Event::MouseButtonReleased){
+            mouse_window = -1;
         }
         if (Mouse::isButtonPressed(sf::Mouse::Left)){
             vec2 mouse_delta = mouse_pos - pressed_pos;
@@ -157,43 +179,30 @@ void sf_window_event(RenderWindow& window, ent_world& world){
             if(mouse_window == 1) top.pos += mouse_delta;
             if(mouse_window == 2) front.pos += mouse_delta;
             if(mouse_window == 3) side.pos += mouse_delta;
+            if(mouse_window == 4){
+                res.type = "c_f";    //change_frame
+                res.value = (mouse_pos.x - TIMELINE_X_INDENT) / (surf_timeline.w - 2 * TIMELINE_X_INDENT);
+            }
         }
-        /*
-        if(event.type == Event::Resized) {
-
-            View view = window.getDefaultView();
-            view.setSize(event.size.width, event.size.height);
-            window.setView(view);
-
-            vec2 dsize = vec2(event.size.width, event.size.height) - window_size;\
-            window_size += dsize;
-
-            screen.change_size(dsize, -dsize * 0.5);
-            surf_3d.change_size(dsize * 0.5, -dsize * 0.5);
-            surf_top.change_size(dsize * 0.5, vec2(0, -dsize.y * 0.5));
-            surf_front.change_size(dsize * 0.5, vec2(-dsize.x * 0.5, 0));
-            surf_side.change_size(dsize * 0.5);
-
-        }
-        */
     }
+
+    return res;
 }
 
-void draw_circle(RenderWindow& window, window_surface& surface, vec2 pos){
-    CircleShape circle(2);
-    circle.setFillColor(sf::Color(255, 255, 255));
-
-    double k = 0.04;
-    int dc = k*0 / (1 + std::abs(k*0)) + 1;
-    circle.setFillColor(Color(255, 128 * dc, 128 * dc));
+void draw_circle(RenderWindow& window, window_surface& surface, vec2 pos, std::vector < std::vector < int > > &body_buff){
+    CircleShape circle(1);
 
     int half_w = surface.w / 2, half_h = surface.h / 2;
 
-    if(pos.x > -half_w && pos.y > -half_h && pos.x < half_w && pos.y < half_h)
-        circle.setPosition(Vector2f(
-            pos.x + surface.x + half_w,
-            pos.y + surface.y + half_h
-        ));
+    int screen_x = 0, screen_y = 0, num;
+    if(pos.x > -half_w && pos.y > -half_h && pos.x < half_w && pos.y < half_h) {
+        screen_x = pos.x + surface.x + half_w;
+        screen_y = pos.y + surface.y + half_h;
+        circle.setPosition(Vector2f(screen_x, screen_y));
+        num = body_buff[screen_x / 2][screen_y / 2]++;
+    }
+    circle.setFillColor(Color(HSV(5, int(55 * exp(-num * 0.5)) + 10, 95)));
+
     window.draw(circle);
 }
 
@@ -224,22 +233,24 @@ void draw_timeline(RenderWindow& window, Replay& replay){
     double val;
     for(int i = 0; i < replay.frame_num; i++){
         val = (replay.dt_list[i] - replay.dt_min) / replay.dt_range;
-        rect.setPosition(surf_timeline.x + 50 + rect_w * i, surf_timeline.y + 50);
+        rect.setPosition(surf_timeline.x + TIMELINE_X_INDENT + rect_w * i, surf_timeline.y + TIMELINE_Y_INDENT);
         rect.setFillColor(Color(HSV(180 - val * 180, 80, 100)));
 
         window.draw(rect);
     }
 
-    draw_line(window, surf_timeline, 50 + rect_w * replay.frame, 25, 50 + rect_w * replay.frame, 85);
+    draw_line(window, surf_timeline, TIMELINE_X_INDENT + rect_w * replay.frame, TIMELINE_Y_INDENT - 25, TIMELINE_X_INDENT + rect_w * replay.frame, TIMELINE_Y_INDENT + 35);
 }
 
-void render_scene(RenderWindow& window, ent_world& world, bool show){
+void render_scene(RenderWindow& window, ent_world& world, std::string &filename, bool show){
     if(time(&current) == last) frame_count++;
     else{
         last = time(&current);
         fps = frame_count;
         frame_count = 0;
     }
+
+    std::vector < std::vector < int > > body_buff(screen.w / 2, std::vector < int > (screen.h / 2));
 
     window.clear();
 
@@ -249,24 +260,27 @@ void render_scene(RenderWindow& window, ent_world& world, bool show){
     draw_text(window, surf_top, "x/y:", 0, 0);
     draw_text(window, surf_front, "x/z:", 0, 0);
     draw_text(window, surf_side, "y/z:", 0, 0);
-    draw_text(window, surf_3d, "dt = " + std::to_string(world.dt), 0, 0);
-    draw_text(window, surf_3d, "fps = " + std::to_string(fps), 0, FONT_HEIGHT + 2);
+    draw_text(window, surf_3d, filename, 0, 0);
+    draw_text(window, surf_3d, "dt = " + std::to_string(world.dt), 0, FONT_HEIGHT + 2);
+    draw_text(window, surf_3d, "time = " + std::to_string((int) world.time), 0, (FONT_HEIGHT + 2) * 2);
+    draw_text(window, surf_3d, "bodies = " + std::to_string(world.count()), 0, (FONT_HEIGHT + 2) * 3);
+    draw_text(window, surf_3d, std::to_string(fps) + " fps", 0, (FONT_HEIGHT + 2) * 4);
 
     for (int i = 0; i < world.count(); i++){
         phys_body b = world.bodies[i];
 
-        draw_circle(window, surf_top, top.coords(b.pos));
-        draw_circle(window, surf_front, front.coords(b.pos));
-        draw_circle(window, surf_side, side.coords(b.pos));
+        draw_circle(window, surf_top, top.coords(b.pos), body_buff);
+        draw_circle(window, surf_front, front.coords(b.pos), body_buff);
+        draw_circle(window, surf_side, side.coords(b.pos), body_buff);
 
-        draw_circle(window, surf_3d, camera_3d.point_coords(b.pos) * camera_3d.scale);
+        draw_circle(window, surf_3d, camera_3d.point_coords(b.pos) * camera_3d.scale, body_buff);
     }
 
     if(show) window.display();
 }
 
-void render_scene(RenderWindow& window, ent_world& world, Replay& replay){
-    render_scene(window, world, false);
+void render_scene(RenderWindow& window, ent_world& world, std::string &filename, Replay& replay){
+    render_scene(window, world, filename, false);
 
     draw_timeline(window, replay);
     window.display();

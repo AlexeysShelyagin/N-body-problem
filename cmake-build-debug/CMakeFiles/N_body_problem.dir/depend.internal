@@ -130,6 +130,9 @@ CMakeFiles/N_body_problem.dir/Replay.cpp.obj
  C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Replay.h
  C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Vectors.h
 CMakeFiles/N_body_problem.dir/UI.cpp.obj
+ C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Entities.h
+ C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Files.h
+ C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Replay.h
  C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/UI.cpp
  C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/UI.h
  C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Vectors.h
@@ -218,5 +221,6 @@ CMakeFiles/N_body_problem.dir/main.cpp.obj
  C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Physics.h
  C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Renderer.h
  C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Replay.h
+ C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/UI.h
  C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Vectors.h
  C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/main.cpp

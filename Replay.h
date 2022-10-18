@@ -17,11 +17,14 @@ public:
     int max_dens;
 
     int frame = 0, frame_num;
+    bool paused = 0;
 
     Replay();
     Replay(std::string filename);
 
     bool load_frame(int _frame);
+
+    int next_frame();
 };
 
 #endif //N_BODY_PROBLEM_REPLAY_H
