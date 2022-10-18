@@ -130,6 +130,9 @@ CMakeFiles/N_body_problem.dir/Replay.cpp.obj: \
  ../Replay.h \
  ../Vectors.h
 CMakeFiles/N_body_problem.dir/UI.cpp.obj: \
+ ../Entities.h \
+ ../Files.h \
+ ../Replay.h \
  ../UI.cpp \
  ../UI.h \
  ../Vectors.h
@@ -218,5 +221,6 @@ CMakeFiles/N_body_problem.dir/main.cpp.obj: \
  ../Physics.h \
  ../Renderer.h \
  ../Replay.h \
+ ../UI.h \
  ../Vectors.h \
  ../main.cpp

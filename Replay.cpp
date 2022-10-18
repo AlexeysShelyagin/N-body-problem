@@ -41,3 +41,9 @@ bool Replay::load_frame(int _frame) {
     world.dt = dt_list[_frame];
     return (frame < frame_num);
 }
+
+int Replay::next_frame() {
+    if(!paused && frame < frame_num) frame++;
+    load_frame(frame);
+    return frame;
+}

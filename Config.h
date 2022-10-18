@@ -15,6 +15,8 @@
 #define DEFAULT_CAMERA_SCALE 0.1
 #define DEFAULT_SCENE_SCALE 0.1
 #define TIMELINE_HEIGHT 100
+#define TIMELINE_X_INDENT 50
+#define TIMELINE_Y_INDENT 50
 
 static std::map < std::string, int > entities_list {
         {"phys_body", 0},
