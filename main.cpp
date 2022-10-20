@@ -2,7 +2,6 @@
 #include <iomanip>
 #include <SFML/Graphics.hpp>
 #include <windows.h>
-#include <ctime>
 
 #include "Vectors.h"
 #include "Entities.h"
@@ -12,70 +11,59 @@
 #include "Files.h"
 #include "Config.h"
 #include "Replay.h"
+#include "Console.h"
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
 
-    string filename = DEFAULT_FILE;
-    string output_name = DEFAULT_OUTPUT;
-    double dt = -1;
-    int render = (argc <= 1) ? -1 : 0;
-    int save = (argc <= 1) ? -1 : 0;
-
-    string arg;
-    for(int i = 0; i < argc; i++){
-        arg = argv[i];
-        if( (arg == "-n") || (arg == "-name") ) filename = argv[++i];
-        if( (arg == "-o") || (arg == "-output") ){
-            output_name = argv[++i];
-            save = 1;
-        }
-        if( (arg == "-dt") ) dt = stod(argv[++i]);
-        if( (arg == "-r") || (arg == "-render") ) render = 1;
-    }
-    string ext = file_extension(filename);
+    Console_launch console(argc, argv);
 
     Event_result event;
 
-    if (ext == ".json") {
-        cout << "loading " << SIMULATION_PATH + filename << " ...\n";
-        ent_world world = load_simulation(SIMULATION_PATH + filename);
-        cout << "load successfully\n";
+    if (console.ext == ".json") {
+        console.loading_file_start();
+        ent_world world = load_simulation(SIMULATION_PATH + console.filename);
+        console.load_result();
 
-        if(dt != -1) world.dt = dt;
-        if(render != -1) world.render = render;
-        if(save != -1) world.save = save;
+        console.apply_parameters(world);
 
         sf::RenderWindow window = sf_init_scene(1920, 1080, 0, "test", DEFAULT_SCENE_SCALE);
+        if(!world.render) window.close();
 
         file simulated;
-        if(world.save) simulated.open(OUTPUT_PATH + output_name, "wb");
+        if(world.save) simulated.open(OUTPUT_PATH + console.output_name, "wb");
         simulated.write(world.G);
         simulated.write((double) world.count());
 
-        int now = (int) time(0), st = now;
-        time_t timer = time(0);
-        tm* start = localtime(&timer);
-        cout << "dt = " << world.dt << '\n';
-        cout << "started at " << start -> tm_hour << "." << start -> tm_min << "." << start -> tm_sec << "\n";
-        int ready_part, percent = 0, last_t = 0;
+        console.calculation_start_info();
 
         int iteration = 0;
         while (sf_window_opened()) {
             if(world.calc_method == "euler") world = calculate_euler(world);
-            if(world.calc_method == "rungekutte") world = calculate_rungekutte(world);
+            if(world.calc_method == "runge_kutta") world = calculate_runge_kutta(world);
             if(world.calc_method == "verlet"){
                 if (iteration == 0)
                     world = calculate_euler(world);
                 else
                     world = calculate_verlet(world);
             }
-
+            if(world.calc_method == "adams_bashforth"){
+                if (iteration == 0)
+                    world = calculate_euler(world);
+                else
+                    world = calculate_adams_bashforth(world);
+            }
+            if(world.calc_method == "implicit_runge_kutta"){
+                if (iteration == 0)
+                    world = calculate_euler(world);
+                else
+                    world = calculate_implicit_runge_kutta(world);
+            }
             if (world.render) {
                 event = sf_window_event(window, world);
                 event.change_simulation(world);
-                render_scene(window, world, filename);
+                render_scene(window, world, console.filename);
             }
 
             if (world.save){
@@ -85,26 +73,7 @@ int main(int argc, char* argv[]) {
                         sf_close_window(window);
                     }
 
-                    ready_part = world.time / world.end_time * 100;
-                    now = time(0);
-                    int remaining_time = (now - st) * (world.end_time / world.time - 1);
-
-                    if (last_t != remaining_time) {
-                        percent = ready_part;
-                        last_t = remaining_time;
-
-                        cout << "[";
-                        for (int i = 0; i < percent / 10; i++) cout << '*';
-                        for (int i = percent / 10; i < 10; i++) cout << '.';
-                        cout << "] " << percent << "%    ";
-                        cout << world.time << " of " << world.end_time;
-
-                        cout << "    time remaining: ";
-                        cout << remaining_time / 3600 << "h ";
-                        cout << remaining_time / 60 % 60 << "m ";
-                        cout << remaining_time % 60 << "s ";
-                        cout << "\r";
-                    }
+                    console.update_progress(world.time);
                 }
             }
             iteration++;
@@ -112,21 +81,18 @@ int main(int argc, char* argv[]) {
 
         simulated.close();
 
-        now = time(0);
-        cout << "\nCalculating time: ";
-        cout << (now - st) / 3600 << "h ";
-        cout << (now - st) / 60 % 60 << "m ";
-        cout << (now - st) % 60 << "s ";
+        console.update_progress(world.time, true);
+        console.calculation_end_info();
     }
-    if(ext == ".bin"){
+    if(console.ext == ".bin"){
         sf::RenderWindow window = sf_init_scene(1920, 1080, 1, "test", DEFAULT_SCENE_SCALE);
 
-        Replay replay(SIMULATED_PATH + filename);
+        Replay replay(SIMULATED_PATH + console.filename);
 
         while (window.isOpen()){
             event = sf_window_event(window, replay.world);
             event.change_replay(replay);
-            render_scene(window, replay.world, filename, replay);
+            render_scene(window, replay.world, console.filename, replay);
 
             replay.next_frame();
         }
