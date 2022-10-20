@@ -6,6 +6,7 @@
 
 #IncludeRegexTransform: 
 
+<<<<<<< Updated upstream
 C:/Libraries/SFML/include/SFML/Config.hpp
 TargetConditionals.h
 C:/Libraries/SFML/include/SFML/TargetConditionals.h
@@ -685,40 +686,18 @@ string
 -
 vector
 -
+=======
+C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Entities.cpp
+>>>>>>> Stashed changes
 cmath
 -
-Vectors.h
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Vectors.h
-
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Files.h
-fstream
--
 Entities.h
 C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Entities.h
-
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Loader.cpp
-include/rapidjson/document.h
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/include/rapidjson/document.h
-include/rapidjson/istreamwrapper.h
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/include/rapidjson/istreamwrapper.h
-fstream
--
-time.h
--
 iostream
--
-Entities.h
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Entities.h
-Config.h
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Config.h
-Vectors.h
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Vectors.h
+C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/iostream
 
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Loader.h
-
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Physics.h
-Entities.h
 C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Entities.h
+<<<<<<< Updated upstream
 
 C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Renderer.h
 Replay.h
@@ -727,22 +706,16 @@ UI.h
 C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/UI.h
 
 C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Replay.h
+=======
+string
+-
+>>>>>>> Stashed changes
 vector
 -
-Entities.h
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Entities.h
-Files.h
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Files.h
-
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/UI.h
-string
+cmath
 -
 Vectors.h
 C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Vectors.h
-Entities.h
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Entities.h
-Replay.h
-C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Replay.h
 
 C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Vectors.h
 ctime
@@ -750,6 +723,7 @@ ctime
 cmath
 -
 
+<<<<<<< Updated upstream
 C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/include/rapidjson/allocators.h
 rapidjson.h
 C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/include/rapidjson/rapidjson.h
@@ -986,3 +960,5 @@ C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Config.h
 Replay.h
 C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Replay.h
 
+=======
+>>>>>>> Stashed changes

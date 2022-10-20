@@ -1,6 +1,7 @@
 #include <cmath>
 
 #include "Entities.h"
+#include "iostream"
 
 //----------------PHYS_BODY---------------------------------
 phys_body::phys_body(vec3 _pos, double _mass, bool _active, vec3 _vel, double _r, std::string _name) {
@@ -35,7 +36,27 @@ int ent_world::find_body(std::string name) {
     }
     return -1;
 }
+<<<<<<< Updated upstream
 //-------------------------------------------------------------
+=======
+
+double ent_world::full_energy(double accuracy){
+    double energy = 0;
+    for(int i = 0; i < count(); i++){
+        phys_body body = bodies[i];
+        energy += body.m * body.vel.mod() * body.vel.mod() / 2 / accuracy;
+        /*
+        for(int j = 0; j < count(); j++){
+            if(i != j){
+                vec3 r = (bodies[j].pos - body.pos);
+                energy += G * body.m * bodies[j].m / r.mod();
+            }
+        }*/
+    }
+    return energy;
+}
+///------------------------------------------------------------------
+>>>>>>> Stashed changes
 
 //------------------ENT_ORTHO_CAMERA---------------------------
 
