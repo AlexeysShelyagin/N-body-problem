@@ -23,6 +23,7 @@ ent_world::ent_world(double _G, double _dt) {
 void ent_world::add_body(phys_body b) {
     bodies.push_back(b);
     last_pos.push_back(b.pos);
+    last_vel.push_back(b.vel);
 }
 
 int ent_world::count() {

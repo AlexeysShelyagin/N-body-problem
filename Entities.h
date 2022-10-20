@@ -70,6 +70,7 @@ class ent_world{
 public:
     std::vector < phys_body > bodies;
     std::vector < vec3 > last_pos;
+    std::vector < vec3 > last_vel;
     double G, dt, time, end_time;
     bool render, save;
     std::string calc_method;
