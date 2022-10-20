@@ -36,9 +36,6 @@ int ent_world::find_body(std::string name) {
     }
     return -1;
 }
-<<<<<<< Updated upstream
-//-------------------------------------------------------------
-=======
 
 double ent_world::full_energy(double accuracy){
     double energy = 0;
@@ -56,7 +53,7 @@ double ent_world::full_energy(double accuracy){
     return energy;
 }
 ///------------------------------------------------------------------
->>>>>>> Stashed changes
+
 
 //------------------ENT_ORTHO_CAMERA---------------------------
 
