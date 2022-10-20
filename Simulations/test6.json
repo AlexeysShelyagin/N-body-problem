@@ -1,11 +1,11 @@
 {
   "world":{
     "G": 6.67e-11,
-    "method": "verlet",
+    "method": "euler",
     "render": true,
     "save": true,
     "dt": 100,
-    "end time": 1e5
+    "end time": 1e6
   },
   "entities":[
      {

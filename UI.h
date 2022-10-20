@@ -4,6 +4,8 @@
 #include <string>
 
 #include "Vectors.h"
+#include "Entities.h"
+#include "Replay.h"
 
 class base_view{
 public:
@@ -26,6 +28,17 @@ public:
 
     bool inside(vec2 pos);
     void change_size(vec2 size, vec2 pos = vec2());
+};
+
+class Event_result{
+public:
+    std::string type;
+    double value;
+
+    Event_result();
+
+    void change_simulation(ent_world &world);
+    void change_replay(Replay &replay);
 };
 
 #endif //N_BODY_PROBLEM_UI_H

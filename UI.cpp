@@ -14,6 +14,7 @@ vec2 base_view::coords(vec3 obj_pos) {
         case 1: return vec2(obj_pos.x, obj_pos.z) * scale + pos;
         case 2: return vec2(obj_pos.y, obj_pos.z) * scale + pos;
     }
+    return vec2();
 }
 
 window_surface::window_surface(std::string _name) {
@@ -38,4 +39,27 @@ void window_surface::change_size(vec2 size, vec2 pos) {
     h += size.y;
     x += pos.x;
     y += pos.y;
+}
+
+Event_result::Event_result() {
+    type = "";
+    value = 0;
+}
+
+void Event_result::change_simulation(ent_world &world) {
+    if(type == "h_w"){
+        world.dt *= 1 + value;
+    }
+}
+
+void Event_result::change_replay(Replay &replay) {
+    if(type == "space"){
+        replay.paused = !replay.paused;
+    }
+    if(type == "c_f"){
+        if(value < 0) value = 0;
+        if(value > 1) value = 1;
+
+        replay.frame = replay.frame_num * value;
+    }
 }

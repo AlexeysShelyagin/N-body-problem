@@ -128,6 +128,30 @@ N_body_problem/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\N_body_problem.dir\build.make CMakeFiles/N_body_problem.dir/build
 .PHONY : N_body_problem/fast
 
+Console.obj: Console.cpp.obj
+.PHONY : Console.obj
+
+# target to build an object file
+Console.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\N_body_problem.dir\build.make CMakeFiles/N_body_problem.dir/Console.cpp.obj
+.PHONY : Console.cpp.obj
+
+Console.i: Console.cpp.i
+.PHONY : Console.i
+
+# target to preprocess a source file
+Console.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\N_body_problem.dir\build.make CMakeFiles/N_body_problem.dir/Console.cpp.i
+.PHONY : Console.cpp.i
+
+Console.s: Console.cpp.s
+.PHONY : Console.s
+
+# target to generate assembly for a file
+Console.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\N_body_problem.dir\build.make CMakeFiles/N_body_problem.dir/Console.cpp.s
+.PHONY : Console.cpp.s
+
 Entities.obj: Entities.cpp.obj
 .PHONY : Entities.obj
 
@@ -353,6 +377,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... N_body_problem
+	@echo ... Console.obj
+	@echo ... Console.i
+	@echo ... Console.s
 	@echo ... Entities.obj
 	@echo ... Entities.i
 	@echo ... Entities.s
