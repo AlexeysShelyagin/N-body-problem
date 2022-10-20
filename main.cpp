@@ -62,12 +62,24 @@ int main(int argc, char* argv[]) {
         int iteration = 0;
         while (sf_window_opened()) {
             if(world.calc_method == "euler") world = calculate_euler(world);
-            if(world.calc_method == "rungekutte") world = calculate_rungekutte(world);
+            if(world.calc_method == "runge_kutta") world = calculate_runge_kutta(world);
             if(world.calc_method == "verlet"){
                 if (iteration == 0)
                     world = calculate_euler(world);
                 else
                     world = calculate_verlet(world);
+            }
+            if(world.calc_method == "adams_bashforth"){
+                if (iteration == 0)
+                    world = calculate_euler(world);
+                else
+                    world = calculate_adams_bashforth(world);
+            }
+            if(world.calc_method == "implicit_runge_kutta"){
+                if (iteration == 0)
+                    world = calculate_euler(world);
+                else
+                    world = calculate_implicit_runge_kutta(world);
             }
             if (world.render) {
                 sf_window_event(window, world);

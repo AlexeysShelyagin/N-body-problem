@@ -5,159 +5,161 @@
 		<Option title="N_body_problem"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\Libraries\;CMake Files\..\..\..\..\..\..\Libraries\SFML\;CMake Files\..\..\..\..\..\..\Libraries\SFML\lib\;CMake Files\..\..\..\..\..\..\Libraries\SFML\lib\cmake\;CMake Files\..\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Libraries\;CMake Files\Libraries\SFML\;CMake Files\Libraries\SFML\lib\;CMake Files\Libraries\SFML\lib\cmake\;CMake Files\Libraries\SFML\lib\cmake\SFML\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug"/>
+				<Option working_dir="D:/Three body problem/N-body-problem/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="N_body_problem">
-				<Option output="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/N_body_problem.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug"/>
+				<Option output="D:/Three body problem/N-body-problem/cmake-build-debug/N_body_problem.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Three body problem/N-body-problem/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DSFML_STATIC"/>
 					<Add directory="C:/Libraries/SFML/include"/>
-					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
-					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
-					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 N_body_problem"/>
-					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 N_body_problem"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="N_body_problem/fast">
-				<Option output="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/N_body_problem.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug"/>
+				<Option output="D:/Three body problem/N-body-problem/cmake-build-debug/N_body_problem.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Three body problem/N-body-problem/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DSFML_STATIC"/>
 					<Add directory="C:/Libraries/SFML/include"/>
-					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
-					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
-					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 N_body_problem/fast"/>
-					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 N_body_problem/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug"/>
+				<Option working_dir="D:/Three body problem/N-body-problem/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug"/>
+				<Option working_dir="D:/Three body problem/N-body-problem/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Three body problem/N-body-problem/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Config.h">
+		<Unit filename="D:/Three body problem/N-body-problem/Config.h">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Entities.cpp">
+		<Unit filename="D:/Three body problem/N-body-problem/Entities.cpp">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Entities.h">
+		<Unit filename="D:/Three body problem/N-body-problem/Entities.h">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Files.cpp">
+		<Unit filename="D:/Three body problem/N-body-problem/Files.cpp">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Files.h">
+		<Unit filename="D:/Three body problem/N-body-problem/Files.h">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Loader.cpp">
+		<Unit filename="D:/Three body problem/N-body-problem/Loader.cpp">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Loader.h">
+		<Unit filename="D:/Three body problem/N-body-problem/Loader.h">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Physics.cpp">
+		<Unit filename="D:/Three body problem/N-body-problem/Physics.cpp">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Physics.h">
+		<Unit filename="D:/Three body problem/N-body-problem/Physics.h">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Renderer.cpp">
+		<Unit filename="D:/Three body problem/N-body-problem/Renderer.cpp">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Renderer.h">
+		<Unit filename="D:/Three body problem/N-body-problem/Renderer.h">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Replay.cpp">
+		<Unit filename="D:/Three body problem/N-body-problem/Replay.cpp">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Replay.h">
+		<Unit filename="D:/Three body problem/N-body-problem/Replay.h">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/UI.cpp">
+		<Unit filename="D:/Three body problem/N-body-problem/UI.cpp">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/UI.h">
+		<Unit filename="D:/Three body problem/N-body-problem/UI.h">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Vectors.cpp">
+		<Unit filename="D:/Three body problem/N-body-problem/Vectors.cpp">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/Vectors.h">
+		<Unit filename="D:/Three body problem/N-body-problem/Vectors.h">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/main.cpp">
+		<Unit filename="D:/Three body problem/N-body-problem/main.cpp">
 			<Option target="N_body_problem"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/CMakeLists.txt">
+		<Unit filename="D:/Three body problem/N-body-problem/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/../../../../../../Libraries/SFML/lib/cmake/SFML/SFMLConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		<Unit filename="D:/Three body problem/N-body-problem/Libraries/SFML/lib/cmake/SFML/SFMLConfig.cmake">
+			<Option virtualFolder="CMake Files\Libraries\SFML\lib\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/../../../../../../Libraries/SFML/lib/cmake/SFML/SFMLConfigDependencies.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		<Unit filename="D:/Three body problem/N-body-problem/Libraries/SFML/lib/cmake/SFML/SFMLConfigDependencies.cmake">
+			<Option virtualFolder="CMake Files\Libraries\SFML\lib\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/../../../../../../Libraries/SFML/lib/cmake/SFML/SFMLConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		<Unit filename="D:/Three body problem/N-body-problem/Libraries/SFML/lib/cmake/SFML/SFMLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\Libraries\SFML\lib\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/../../../../../../Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets-debug.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		<Unit filename="D:/Three body problem/N-body-problem/Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets-debug.cmake">
+			<Option virtualFolder="CMake Files\Libraries\SFML\lib\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/../../../../../../Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		<Unit filename="D:/Three body problem/N-body-problem/Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets-release.cmake">
+			<Option virtualFolder="CMake Files\Libraries\SFML\lib\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="C:/Users/alexe/Documents/Lyceum/NPK/N-body-problem/../../../../../../Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Libraries\SFML\lib\cmake\SFML\"/>
+		<Unit filename="D:/Three body problem/N-body-problem/Libraries/SFML/lib/cmake/SFML/SFMLStaticTargets.cmake">
+			<Option virtualFolder="CMake Files\Libraries\SFML\lib\cmake\SFML\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
