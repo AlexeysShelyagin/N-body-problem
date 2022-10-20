@@ -1,3 +1,0 @@
-D:/Three body problem/N-body-problem/cmake-build-debug/CMakeFiles/N_body_problem.dir
-D:/Three body problem/N-body-problem/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Three body problem/N-body-problem/cmake-build-debug/CMakeFiles/rebuild_cache.dir

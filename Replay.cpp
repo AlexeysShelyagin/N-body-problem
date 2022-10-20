@@ -1,4 +1,5 @@
 #include "Replay.h"
+
 #include <iostream>
 
 Replay::Replay() {
@@ -38,7 +39,14 @@ Replay::Replay(std::string filename) {
 bool Replay::load_frame(int _frame) {
     frame = _frame;
     if(frame < frame_num) world = world_file.read_world(body_num, sizeof(double) * (2 + (4 * body_num + 1) * frame));
-    world.dt = dt_list[_frame];
+    world.dt = dt_list[frame];
+
+    if(frame != 0){
+        ent_world last_frame = world_file.read_world(body_num, sizeof(double) * (2 + (4 * body_num + 1) * (frame - 1)));
+        for(int i = 0; i < body_num; i++){
+            world.bodies[i].vel = (world.bodies[i].pos - last_frame.bodies[i].pos) / dt_list[frame - 1];
+        }
+    }
     return (frame < frame_num);
 }
 
