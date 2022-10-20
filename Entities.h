@@ -80,6 +80,8 @@ public:
     void add_body(phys_body b);
     int count();
     int find_body(std::string name);
+
+    double full_energy(double accuracy = 1);
 };
 ///------------------------------------------------------------------
 
