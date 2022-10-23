@@ -60,7 +60,7 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
     vec3 center = load_vector(body_file, "center_position");
 
     vec3 pos, vel;
-    double current_m, M = m * n;
+    double current_m, M = m * n, probability, dist;
 
     for(int i = 0; i < n; ++i){
         do {
@@ -91,6 +91,7 @@ ent_world load_simulation(std::string file_path){
 
     world.G = world_file["world"]["G"].GetDouble();
     world.dt = world_file["world"]["dt"].GetDouble();
+    world.dt_max = world.dt;
     world.end_time = world_file["world"]["end time"].GetDouble();
     world.render = world_file["world"]["render"].GetBool();
     world.save = world_file["world"]["save"].GetBool();

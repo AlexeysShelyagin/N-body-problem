@@ -23,7 +23,15 @@ ent_world calculate_euler(ent_world world){
         world.bodies[i].pos += world.bodies[i].vel * world.dt;
     }
 
+    double energy = world.full_energy();
+    double dE = 0;
+    if(world.energy != 0) dE = energy - world.energy;
+    world.energy = energy;
+
     world.time += world.dt;
+    world.dt *= exp(- abs(dE) / energy);
+    if(world.dt * 1.001 < world.dt_max) world.dt *= 1.001;
+    else world.dt = world.dt_max;
     return world;
 }
 

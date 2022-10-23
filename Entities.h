@@ -71,9 +71,10 @@ public:
     std::vector < phys_body > bodies;
     std::vector < vec3 > last_pos;
     std::vector < vec3 > last_vel;
-    double G, dt, time, end_time;
+    double G, dt, time, end_time, dt_max;
     bool render, save;
     std::string calc_method;
+    double energy = 0, last_dE = 0;
 
     ent_world(double _G = 0, double _dt = 0);
 

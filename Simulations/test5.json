@@ -4,16 +4,16 @@
     "method": "euler",
     "render": true,
     "save": true,
-    "dt": 1e9,
+    "dt": 100,
     "end time": 1e6
   },
   "entities":[
-     {
+    {
       "class": "random_sphere",
       "center_position": [0, 0, 0],
-      "radius": 1e4,
+      "radius": 500,
       "mass": 1e4,
-      "mass_range": 1e2,
+      "mass_range": 1e1,
       "number": 1000,
       "velocity": [0, 0, 0]
     }

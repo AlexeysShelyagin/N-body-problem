@@ -80,6 +80,7 @@ void Console_launch::apply_parameters(ent_world &world) {
     if(save != -1) world.save = save;
 
     dt = world.dt;
+    world.dt_max = world.dt;
     end_time = world.end_time;
 }
 ///------------------------------------------------------------------
@@ -111,6 +112,7 @@ void Console_launch::calculation_start_info() {
 
 void Console_launch::update_progress(double now_time, bool rewrite) {
     ready_part = now_time / end_time * 100;
+    if(ready_part < 0 || ready_part > 100) return;
     int now = (int) time(0);
     int remaining_time = (now - start_time) * (end_time / now_time - 1);
 
