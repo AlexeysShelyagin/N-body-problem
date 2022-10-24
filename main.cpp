@@ -60,6 +60,9 @@ int main(int argc, char* argv[]) {
                 else
                     world = calculate_implicit_runge_kutta(world);
             }
+
+            if(world.dynamic_dt) recalculate_dt(world);
+
             if (world.render) {
                 event = sf_window_event(window, world);
                 event.change_simulation(world);

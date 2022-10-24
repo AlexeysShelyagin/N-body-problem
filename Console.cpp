@@ -22,11 +22,13 @@ Console_launch::Console_launch(int argc, char* argv[]) {
  *      -o or -output + file name in default folder: name of simulated output binary
  *      -dt + real number: redefining simulation step (world.dt)
  *      -r or -render : flag for enable simulation rendering
+ *      -d : flag for enable dynamic dt
  */
 
 void Console_launch::read_parameters(int argc, char* argv[]) {
     dt = -1;
     save = render = (argc <= 1) ? -1 : 0;
+    dynamic_dt = 0;
 
     string arg;
     for(int i = 0; i < argc; i++){
@@ -38,6 +40,7 @@ void Console_launch::read_parameters(int argc, char* argv[]) {
         }
         if( (arg == "-dt") ) dt = stod(argv[++i]);
         if( (arg == "-r") || (arg == "-render") ) render = 1;
+        if( (arg == "-d")) dynamic_dt = 1;
     }
     ext = file_extension(filename);
 }
@@ -78,9 +81,9 @@ void Console_launch::apply_parameters(ent_world &world) {
     if(dt != -1) world.dt = dt;
     if(render != -1) world.render = render;
     if(save != -1) world.save = save;
+    world.dynamic_dt = (dynamic_dt || world.dynamic_dt);
 
     dt = world.dt;
-    world.dt_max = world.dt;
     end_time = world.end_time;
 }
 ///------------------------------------------------------------------

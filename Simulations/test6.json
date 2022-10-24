@@ -5,7 +5,9 @@
     "render": true,
     "save": true,
     "dt": 100,
-    "end time": 1e6
+    "end time": 1e6,
+    "dynamic_dt": false,
+    "dt_max": 1000
   },
   "entities":[
      {

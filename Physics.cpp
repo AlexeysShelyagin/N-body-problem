@@ -3,6 +3,17 @@
 #include <vector>
 #include <iostream>
 
+void recalculate_dt(ent_world &world){
+    double energy = world.full_energy();
+    double dE = 0;
+    if(world.energy != 0) dE = energy - world.energy;
+    world.energy = energy;
+
+    world.dt *= exp(- abs(dE) / energy);
+    if(world.dt * 1.001 < world.dt_max) world.dt *= 1.001;
+    else world.dt = world.dt_max;
+}
+
 ent_world calculate_euler(ent_world world){
     std::vector < vec3 > accel(world.count());
     for (int i = 0; i < world.count(); i++){
@@ -23,15 +34,7 @@ ent_world calculate_euler(ent_world world){
         world.bodies[i].pos += world.bodies[i].vel * world.dt;
     }
 
-    double energy = world.full_energy();
-    double dE = 0;
-    if(world.energy != 0) dE = energy - world.energy;
-    world.energy = energy;
-
     world.time += world.dt;
-    world.dt *= exp(- abs(dE) / energy);
-    if(world.dt * 1.001 < world.dt_max) world.dt *= 1.001;
-    else world.dt = world.dt_max;
     return world;
 }
 

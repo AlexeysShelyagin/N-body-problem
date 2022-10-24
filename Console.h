@@ -36,7 +36,7 @@ public:
     std::string filename = DEFAULT_FILE;
     std::string output_name = DEFAULT_OUTPUT;
     double dt, end_time;
-    int render, save;
+    int render, save, dynamic_dt;
     std::string ext;
 
     int start_time, ready_part, percent, last_t = 0;

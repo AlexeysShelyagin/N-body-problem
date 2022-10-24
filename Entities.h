@@ -72,7 +72,7 @@ public:
     std::vector < vec3 > last_pos;
     std::vector < vec3 > last_vel;
     double G, dt, time, end_time, dt_max;
-    bool render, save;
+    bool render, save, dynamic_dt;
     std::string calc_method;
     double energy = 0, last_dE = 0;
 
