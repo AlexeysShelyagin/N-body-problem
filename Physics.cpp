@@ -70,7 +70,7 @@ ent_world calculate_adams_bashforth(ent_world world){
         vec3 temp_pos = world.bodies[i].pos;
         vec3 temp_vel = world.bodies[i].vel;
         world.bodies[i].vel += accel[i] * world.dt;
-        world.bodies[i].pos +=  world.bodies[i].vel * world.dt * (3.0 / 2)  - world.last_vel[i] * world.dt * (1.0 / 2);
+        world.bodies[i].pos +=  world.bodies[i].vel * world.dt * (3.0 / 2) - world.last_vel[i] * world.dt * (1.0 / 2);
         world.last_pos[i] = temp_pos;
         world.last_vel[i] = temp_vel;
     }
