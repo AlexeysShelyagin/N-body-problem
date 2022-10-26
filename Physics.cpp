@@ -1,3 +1,4 @@
+#include "Physics.h"
 #include "Entities.h"
 #include <vector>
 #include <iostream>
@@ -69,7 +70,7 @@ ent_world calculate_adams_bashforth(ent_world world){
         vec3 temp_pos = world.bodies[i].pos;
         vec3 temp_vel = world.bodies[i].vel;
         world.bodies[i].vel += accel[i] * world.dt;
-        world.bodies[i].pos +=  world.bodies[i].vel * world.dt * (3.0 / 2)  - world.last_vel[i] * world.dt * (1.0 / 2);
+        world.bodies[i].pos +=  world.bodies[i].vel * world.dt * (3.0 / 2) - world.last_vel[i] * world.dt * (1.0 / 2);
         world.last_pos[i] = temp_pos;
         world.last_vel[i] = temp_vel;
     }
@@ -104,42 +105,45 @@ ent_world calculate_implicit_runge_kutta(ent_world world){
     return world;
 }
 
-vec3 runge_kutta_function(ent_world& world, vec3 r, double m){
+vec3 runge_kutta_function(double G, vec3 r, double m){
     double r_3 = r.mod();
     r_3 = r_3 * r_3 * r_3;
-    return -r * (world.G * m / r_3);
+    return r * (G * m / r_3);
+}
+
+std::vector < runge_kutta_values > runge_kutta_iteration(ent_world& world, std::vector < runge_kutta_values > last_iter_val = std::vector < runge_kutta_values > (), double k = 1){
+    std::vector < runge_kutta_values > values(world.count());
+    if (last_iter_val.empty()) last_iter_val.resize(world.count());
+
+    for(int i = 0; i < world.count(); i++){
+        vec3 accel = vec3();
+        for(int j = 0; j < world.count(); j++){
+            if(i != j){
+                vec3 r = (world.bodies[j].pos + last_iter_val[j].q * k) - (world.bodies[i].pos + last_iter_val[i].q * k);
+                accel += runge_kutta_function(world.G, r, world.bodies[j].m);
+            }
+        }
+        values[i].k = accel * world.dt;
+        values[i].q = (world.bodies[i].vel + last_iter_val[i].k * k) * world.dt;
+    }
+
+    return values;
 }
 
 ent_world calculate_runge_kutta(ent_world world){
-    std::vector < vec3 > vel_list(world.count());
-    std::vector < vec3 > pos_list(world.count());
-    for (int i = 0; i < world.count(); i++){
-        if (world.bodies[i].active) {
-            for (int j = 0; j < world.count(); j++) {
-                if (i != j) {
-                    vec3 r = world.bodies[j].pos - world.bodies[i].pos;
-                    vec3 vel = world.bodies[i].vel;
-                    double m = world.bodies[i].m;
+    std::vector < runge_kutta_values > iter1;
+    std::vector < runge_kutta_values > iter2;
+    std::vector < runge_kutta_values > iter3;
+    std::vector < runge_kutta_values > iter4;
 
-                    vec3 k1 = runge_kutta_function(world, r, m);
-                    vec3 q1 = vel * world.dt;
-                    vec3 k2 = runge_kutta_function(world, r + q1 / 2, m);
-                    vec3 q2 = (vel + k1 / 2) * world.dt;
-                    vec3 k3 = runge_kutta_function(world, r + q2 / 2, m);
-                    vec3 q3 = (vel + k2 / 2) * world.dt;
-                    vec3 k4 = runge_kutta_function(world, r + q3, m);
-                    vec3 q4 = (vel + k3) * world.dt;
+    iter1 = runge_kutta_iteration(world);
+    iter2 = runge_kutta_iteration(world, iter1, 0.5);
+    iter3 = runge_kutta_iteration(world, iter2, 0.5);
+    iter4 = runge_kutta_iteration(world, iter3);
 
-                    vel_list[i] += (k1 + k2 * 2 + k3 * 2 + k4) / 6.0;
-                    pos_list[i] += (q1 + q2 * 2 + q3 * 2 + q4) / 6.0;
-                }
-            }
-        }
-    }
-
-    for (int i = 0; i < world.count(); i++){
-        world.bodies[i].vel += vel_list[i];
-        world.bodies[i].pos += pos_list[i];
+    for(int i = 0; i < world.count(); i++){
+        world.bodies[i].pos += (iter1[i].q + iter2[i].q * 2 + iter3[i].q * 2 + iter4[i].q) / 6.0;
+        world.bodies[i].vel += (iter1[i].k + iter2[i].k * 2 + iter3[i].k * 2 + iter4[i].k) / 6.0;
     }
 
     world.time += world.dt;

@@ -24,6 +24,7 @@ ent_world::ent_world(double _G, double _dt) {
 void ent_world::add_body(phys_body b) {
     this->bodies.push_back(b);
     last_pos.push_back(b.pos);
+    last_vel.push_back(b.vel);
 }
 
 int ent_world::count() {
@@ -42,13 +43,11 @@ double ent_world::full_energy(double accuracy){
     for(int i = 0; i < count(); i++){
         phys_body body = bodies[i];
         energy += body.m * body.vel.mod() * body.vel.mod() / 2 / accuracy;
-        /*
-        for(int j = 0; j < count(); j++){
-            if(i != j){
-                vec3 r = (bodies[j].pos - body.pos);
-                energy += G * body.m * bodies[j].m / r.mod();
-            }
-        }*/
+
+        for(int j = i + 1; j < count(); j++){
+            vec3 r = (bodies[j].pos - body.pos);
+            energy -= G * body.m * bodies[j].m / r.mod() / accuracy;
+        }
     }
     return energy;
 }
