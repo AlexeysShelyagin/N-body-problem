@@ -3,6 +3,8 @@
 
 #include "Entities.h"
 
+void recalculate_dt(ent_world &world, double energy);
+
 ent_world calculate_euler(ent_world world);
 ent_world calculate_runge_kutta(ent_world world);
 ent_world calculate_verlet(ent_world world);

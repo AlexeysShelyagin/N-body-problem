@@ -13,12 +13,12 @@ Replay::Replay(std::string filename) {
     world = world_file.read_world(body_num);
     world.G = G;
 
-    frame_num = (world_file.size() / sizeof(double) - 2) / (4 * body_num + 1);
+    frame_num = (world_file.size() / sizeof(double) - 2) / (4 * body_num + 2);
     dt_list.resize(frame_num);
 
     double last_t = 0, T, dt_max = 0, end_t = 0;
     for(int i = 0; i < frame_num; i++){
-        T = world_file.read_double(sizeof(double) * (2 + (4 * body_num + 1) * i));
+        T = world_file.read_double(sizeof(double) * (2 + (4 * body_num + 2) * i));
         dt_list[i] = T - last_t;
         last_t = T;
         end_t += dt_list[i];
@@ -38,15 +38,17 @@ Replay::Replay(std::string filename) {
 
 bool Replay::load_frame(int _frame) {
     frame = _frame;
-    if(frame < frame_num) world = world_file.read_world(body_num, sizeof(double) * (2 + (4 * body_num + 1) * frame));
+    if(frame < frame_num) world = world_file.read_world(body_num, sizeof(double) * (2 + (4 * body_num + 2) * frame));
     world.dt = dt_list[frame];
 
+    /*
     if(frame != 0){
-        ent_world last_frame = world_file.read_world(body_num, sizeof(double) * (2 + (4 * body_num + 1) * (frame - 1)));
+        ent_world last_frame = world_file.read_world(body_num, sizeof(double) * (2 + (4 * body_num + 2) * (frame - 1)));
         for(int i = 0; i < body_num; i++){
             world.bodies[i].vel = (world.bodies[i].pos - last_frame.bodies[i].pos) / dt_list[frame - 1];
         }
     }
+    */
     return (frame < frame_num);
 }
 

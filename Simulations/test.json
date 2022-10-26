@@ -1,0 +1,38 @@
+{
+  "world":{
+    "G": 6.67e-11,
+    "method": "euler",
+    "render": true,
+    "save": true,
+    "dt": 100,
+    "end time": 1e6,
+    "dynamic_dt": false,
+    "dt_max": 100
+  },
+  "entities": [
+    {
+      "name": "v1",
+      "class": "phys_body",
+      "position": [0, 100, 0],
+      "mass": 5e6,
+      "velocity": [0.001, 0, 0],
+      "radius": 1
+    },
+    {
+      "name": "v2",
+      "class": "phys_body",
+      "position": [86.602540378444, -50, 0],
+      "mass": 5e6,
+      "velocity": [-0.0005, -0.00086602540378444, 0],
+      "radius": 1
+    },
+    {
+      "name": "v3",
+      "class": "phys_body",
+      "position": [-86.602540378444, -50, 0],
+      "mass": 5e6,
+      "velocity": [-0.0005, 0.00086602540378444, 0],
+      "radius": 1
+    }
+  ]
+}
