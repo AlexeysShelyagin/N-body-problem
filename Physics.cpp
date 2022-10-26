@@ -3,11 +3,9 @@
 #include <vector>
 #include <iostream>
 
-void recalculate_dt(ent_world &world){
-    double energy = world.full_energy();
+void recalculate_dt(ent_world &world, double energy){
     double dE = 0;
     if(world.energy != 0) dE = energy - world.energy;
-    world.energy = energy;
 
     world.dt *= exp(- abs(dE) / energy);
     if(world.dt * 1.001 < world.dt_max) world.dt *= 1.001;

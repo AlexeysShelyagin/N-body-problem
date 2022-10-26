@@ -260,12 +260,14 @@ void render_scene(RenderWindow& window, ent_world& world, std::string &filename,
     draw_text(window, surf_top, "x/y:", 0, 0);
     draw_text(window, surf_front, "x/z:", 0, 0);
     draw_text(window, surf_side, "y/z:", 0, 0);
+
     draw_text(window, surf_3d, filename, 0, 0);
-    draw_text(window, surf_3d, "dt = " + std::to_string(world.dt), 0, FONT_HEIGHT + 2);
-    draw_text(window, surf_3d, "time = " + std::to_string((int) world.time), 0, (FONT_HEIGHT + 2) * 2);
-    draw_text(window, surf_3d, "bodies = " + std::to_string(world.count()), 0, (FONT_HEIGHT + 2) * 3);
-    draw_text(window, surf_3d, std::to_string((int) world.full_energy(1e3)) + " J", 0, (FONT_HEIGHT + 2) * 4);
-    draw_text(window, surf_3d, std::to_string(fps) + " fps", 0, (FONT_HEIGHT + 2) * 5);
+    draw_text(window, surf_3d, world.calc_method, 0, FONT_HEIGHT + 2);
+    draw_text(window, surf_3d, "dt = " + std::to_string(world.dt), 0, (FONT_HEIGHT + 2) * 2);
+    draw_text(window, surf_3d, "time = " + std::to_string((int) world.time), 0, (FONT_HEIGHT + 2) * 3);
+    draw_text(window, surf_3d, "bodies = " + std::to_string(world.count()), 0, (FONT_HEIGHT + 2) * 4);
+    draw_text(window, surf_3d, std::to_string((int) (world.energy / 1e3)) + " J", 0, (FONT_HEIGHT + 2) * 5);
+    draw_text(window, surf_3d, std::to_string(fps) + " fps", 0, (FONT_HEIGHT + 2) * 6);
 
     for (int i = 0; i < world.count(); i++){
         phys_body b = world.bodies[i];

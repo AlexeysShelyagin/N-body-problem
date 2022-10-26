@@ -31,6 +31,7 @@ void file::write(T text) {
 
 void file::write(ent_world world) {
     write(world.time);
+    write(world.energy);
     for(int i = 0; i < world.count(); i++){
         write(world.bodies[i].pos.x);
         write(world.bodies[i].pos.y);
@@ -71,6 +72,7 @@ ent_world file::read_world(int body_num, long long cur) {
 
     ent_world world;
     world.time = read_double();
+    world.energy = read_double();
 
     vec3 pos;
     double m;

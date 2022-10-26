@@ -37,6 +37,7 @@ public:
     std::string output_name = DEFAULT_OUTPUT;
     double dt, end_time;
     int render, save, dynamic_dt;
+    std::string method;
     std::string ext;
 
     int start_time, ready_part, percent, last_t = 0;
