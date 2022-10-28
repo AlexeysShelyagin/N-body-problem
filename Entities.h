@@ -74,7 +74,7 @@ public:
     double G, dt, time, end_time, dt_max;
     bool render, save, dynamic_dt;
     std::string calc_method;
-    double energy = 0, last_dE = 0;
+    double energy = 0, kinetic_e = 0, potential_e = 0, last_dE = 0;
 
     ent_world(double _G = 0, double _dt = 0);
 

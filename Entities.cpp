@@ -39,16 +39,19 @@ int ent_world::find_body(std::string name) {
 }
 
 double ent_world::full_energy(double accuracy){
-    double energy = 0;
+    double eP = 0, eK = 0;
     for(int i = 0; i < count(); i++){
         phys_body body = bodies[i];
-        energy += body.m * body.vel.mod() * body.vel.mod() / 2 / accuracy;
+        eK += body.m * body.vel.mod() * body.vel.mod() / 2 / accuracy;
 
         for(int j = i + 1; j < count(); j++){
             vec3 r = (bodies[j].pos - body.pos);
-            energy -= G * body.m * bodies[j].m / r.mod() / accuracy;
+            eP -= G * body.m * bodies[j].m / r.mod() / accuracy;
         }
     }
+    energy = eK + eP;
+    kinetic_e = eK;
+    potential_e = eP;
     return energy;
 }
 ///------------------------------------------------------------------
@@ -66,6 +69,7 @@ vec3 ent_ortho_camera::set_orientation(vec2 orientation) {
 vec3 ent_ortho_camera::change_orientation(vec2 delta_orientation) {
     if (orient.y + delta_orientation.y > 0 && orient.y + delta_orientation.y < PI)
         return set_orientation(orient + delta_orientation);
+    return n;
 }
 
 ent_ortho_camera::ent_ortho_camera(vec3 _pos, vec2 orientation, double _scale) {

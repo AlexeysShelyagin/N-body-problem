@@ -31,7 +31,8 @@ void file::write(T text) {
 
 void file::write(ent_world world) {
     write(world.time);
-    write(world.energy);
+    write(world.potential_e);
+    write(world.kinetic_e);
     for(int i = 0; i < world.count(); i++){
         write(world.bodies[i].pos.x);
         write(world.bodies[i].pos.y);
