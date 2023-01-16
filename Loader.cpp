@@ -3,7 +3,7 @@
 #include <fstream>
 #include <time.h>
 #include <iostream>
-
+#include <math.h>
 #include "Entities.h"
 #include "Config.h"
 #include "Vectors.h"
@@ -50,6 +50,12 @@ double random_double(){
     return (double) rand() / RAND_MAX;
 }
 
+int sgn (double x) {
+    if (x > 0) return 1;
+    if (x < 0) return -1;
+    return 0;
+}
+
 void load_random_sphere(ent_world &world, Value::Object body_file){
     srand( time(NULL) );
 
@@ -63,18 +69,16 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
     double current_m, M = m * n, probability, dist;
 
     for(int i = 0; i < n; ++i){
-        do {
-            pos.x = (random_double() - 0.5) * 2 * r;
-            pos.y = (random_double() - 0.5) * 2 * r;
-            pos.z = (random_double() - 0.5) * 2 * r;
-        } while (pos.mod() > r);
+        double teta = 2 * PI * random_double();
+        double phi = sgn(2 * random_double() - 1) * asin(fabs(2 * random_double() - 1));
+        double radius = r * pow ( 1 - random_double(), -0.25);
         current_m = m + (random_double() - 0.5) * 2 * dm;
 
         vel = ang_vec3(random_double() * 2 * PI, random_double() * PI);
         vel *= sqrt(0.6 * (world.G * M) / r);
 
         world.add_body(phys_body(
-            pos + center,
+            ang_vec3(teta, phi) * radius + center,
             current_m,
             1,
             load_vector(body_file, "velocity") + vel
