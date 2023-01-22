@@ -1,0 +1,23 @@
+{
+  "world":{
+    "G": 6.67e-11,
+    "method": "euler",
+    "render": true,
+    "save": true,
+    "dt": 100,
+    "end time": 2e5,
+    "dynamic_dt": false,
+    "dt_max": 1000
+  },
+  "entities":[
+     {
+      "class": "random_sphere",
+      "center_position": [0, 0, 0],
+      "radius": 500,
+      "mass": 1e5,
+      "mass_range": 1e2,
+      "number": 1000,
+      "velocity": [0, 0, 0]
+    }
+  ]
+}

@@ -70,8 +70,8 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
 
     for(int i = 0; i < n; ++i){
         double teta = 2 * PI * random_double();
-        double phi = sgn(2 * random_double() - 1) * asin(fabs(2 * random_double() - 1));
-        double radius = r * pow ( 1 - random_double(), -0.25);
+        double phi = asin(fabs(2 * random_double() - 1));
+        double radius = r * pow ( 1 - random_double(), -0.5);
         current_m = m + (random_double() - 0.5) * 2 * dm;
 
         vel = ang_vec3(random_double() * 2 * PI, random_double() * PI);
