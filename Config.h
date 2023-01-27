@@ -9,11 +9,11 @@
 #define SIMULATED_PATH "../Simulated/"
 
 #define OUTPUT_PATH "../Simulated/"
-#define DEFAULT_OUTPUT "test6.bin"
+#define DEFAULT_OUTPUT "Cluster_large.bin"
 
 #define FONT_HEIGHT 16
 #define DEFAULT_CAMERA_SCALE 1e-10
-#define DEFAULT_SCENE_SCALE 1e-10
+#define DEFAULT_SCENE_SCALE 1e-1
 #define TIMELINE_HEIGHT 100
 #define TIMELINE_X_INDENT 50
 #define TIMELINE_Y_INDENT 50
