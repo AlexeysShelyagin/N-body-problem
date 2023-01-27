@@ -63,18 +63,16 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
     double current_m, M = m * n, probability, dist;
 
     for(int i = 0; i < n; ++i){
-        do {
-            pos.x = (random_double() - 0.5) * 2 * r;
-            pos.y = (random_double() - 0.5) * 2 * r;
-            pos.z = (random_double() - 0.5) * 2 * r;
-        } while (pos.mod() > r);
-        current_m = m + (random_double() - 0.5) * 2 * dm;
+        double teta = 2 * PI * random_double();
+        double phi = asin(2 * random_double() - 1);
+        double radius = - r * log(1 - random_double());
+        current_m = pow((m * 26.6675 - m * 26.6614 * random_double()), -1/1.3);
 
         vel = ang_vec3(random_double() * 2 * PI, random_double() * PI);
         vel *= sqrt(0.6 * (world.G * M) / r);
 
         world.add_body(phys_body(
-            pos + center,
+            ang_vec3(teta, PI/2 - phi) * radius + center,
             current_m,
             1,
             load_vector(body_file, "velocity") + vel
