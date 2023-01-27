@@ -73,7 +73,8 @@ ent_world file::read_world(int body_num, long long cur) {
 
     ent_world world;
     world.time = read_double();
-    world.energy = read_double();
+    world.potential_e = read_double();
+    world.kinetic_e = read_double();
 
     vec3 pos;
     double m;

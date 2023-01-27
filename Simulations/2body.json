@@ -2,21 +2,21 @@
   "world":{
     "G": 6.67e-11,
     "method": "euler",
-    "render": true,
+    "render": false,
     "save": true,
-    "dt": 10000,
-    "end time": 400,
+    "dt": 100,
+    "end time": 2e9,
     "dynamic_dt": false,
-    "dt_max": 15000
+    "dt_max": 1000
   },
-  "entities": [
+  "entities":[
     {
       "name": "b1",
       "class": "phys_body",
       "position": [-1e11, 0, 0],
       "mass": 1e30,
       "velocity": [0, 1e4, 0],
-      "radius": 1
+      "radius": 2
     },
     {
       "name": "b2",
@@ -24,7 +24,7 @@
       "position": [1e11, 0, 0],
       "mass": 1e30,
       "velocity": [0, -1e4, 0],
-      "radius": 1
+      "radius": 2
     }
   ]
 }
