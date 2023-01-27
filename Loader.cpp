@@ -3,7 +3,7 @@
 #include <fstream>
 #include <time.h>
 #include <iostream>
-#include <math.h>
+
 #include "Entities.h"
 #include "Config.h"
 #include "Vectors.h"
@@ -48,12 +48,6 @@ phys_body load_body (Value::Object body_file, phys_body relative_body){
 
 double random_double(){
     return (double) rand() / RAND_MAX;
-}
-
-int sgn (double x) {
-    if (x > 0) return 1;
-    if (x < 0) return -1;
-    return 0;
 }
 
 void load_random_sphere(ent_world &world, Value::Object body_file){
