@@ -1,11 +1,11 @@
 {
   "world":{
     "G": 6.67e-11,
-    "method": "implicit_runge_kutta",
-    "render": true,
+    "method": "euler",
+    "render": false,
     "save": true,
-    "dt": 10000,
-    "end time": 2e8,
+    "dt": 100,
+    "end time": 2e9,
     "dynamic_dt": false,
     "dt_max": 1000
   },
