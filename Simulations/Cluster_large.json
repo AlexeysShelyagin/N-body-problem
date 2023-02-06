@@ -14,9 +14,9 @@
       "class": "random_sphere",
       "center_position": [0, 0, 0],
       "radius": 500,
-      "mass": 1e5,
+      "mass": 1e-10,
       "mass_range": 1e2,
-      "number": 1000,
+      "number": 200,
       "velocity": [0, 0, 0]
     }
   ]

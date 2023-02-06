@@ -54,6 +54,14 @@ double ent_world::full_energy(double accuracy){
     potential_e = eP;
     return energy;
 }
+
+double ent_world::full_mass(){
+    double full_m = 0;
+    for(int i = 0; i < count(); i++){
+            full_m += bodies[i].m;
+    }
+    return full_m;
+}
 ///------------------------------------------------------------------
 
 

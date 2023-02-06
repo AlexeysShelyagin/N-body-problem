@@ -50,11 +50,6 @@ double random_double(){
     return (double) rand() / RAND_MAX;
 }
 
-int sgn (double x) {
-    if (x > 0) return 1;
-    if (x < 0) return -1;
-    return 0;
-}
 
 void load_random_sphere(ent_world &world, Value::Object body_file){
     srand( time(NULL) );
@@ -68,21 +63,52 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
     vec3 pos, vel;
     double current_m, M = m * n, probability, dist;
 
+    std::vector < double > mass_list(n);
+    double full_mass = 0;
+    for(int i = 0; i < n; i++){
+        mass_list[i] = pow((m * 26.6675 - m * 26.6614 * random_double()), -1/1.3);
+        full_mass += mass_list[i];
+    }
+    std::cout << ">>>" << full_mass << '\n';
+
     for(int i = 0; i < n; ++i){
         double teta = 2 * PI * random_double();
         double phi = asin(2 * random_double() - 1);
-        double radius = - r * log(1 - random_double());
-        current_m = pow((m * 26.6675 - m * 26.6614 * random_double()), -1/1.3);
 
-        vel = ang_vec3(random_double() * 2 * PI, random_double() * PI);
-        vel *= sqrt(0.6 * (world.G * M) / r);
+        double radius_x = r * (2 * random_double() - 1);
+        double radius_y = r * (2 * random_double() - 1);
+        double radius_z = r * (2 * random_double() - 1);
+        double radius = sqrt(radius_x * radius_x + radius_y * radius_y + radius_z * radius_z);
+        if (random_double() + 5.37 * (radius * radius / r) * pow(1 + (radius * radius / r), -5 / 2) < 1){
+            i--;
+            continue;
+        }
 
         world.add_body(phys_body(
             ang_vec3(teta, PI/2 - phi) * radius + center,
             current_m,
             1,
-            load_vector(body_file, "velocity") + vel
+            load_vector(body_file, "velocity")
         ));
+    }
+    double p_e = 0;
+
+    for(int i = 0; i < n; i++){
+        for (int j = 0; j < n; j++){
+            if (i != j && i < j) {
+                double r = (world.bodies[i].pos - world.bodies[j].pos).mod();
+                p_e += -world.G * mass_list[i] * mass_list[j] / r;
+            }
+        }
+    }
+
+    for(int i = 0; i < n; ++i){
+        double Vrms  = sqrt(-p_e / 3 / full_mass);
+        std::cout << Vrms << std::endl;
+        vel.x = 3.4 * Vrms * (random_double() - 0.5);
+        vel.y = 3.4 * Vrms * (random_double() - 0.5);
+        vel.z = 3.4 * Vrms * (random_double() - 0.5);
+        world.bodies[i].vel += vel;
     }
 }
 

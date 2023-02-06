@@ -83,6 +83,8 @@ public:
     int find_body(std::string name);
 
     double full_energy(double accuracy = 1);
+
+    double full_mass();
 };
 ///------------------------------------------------------------------
 
