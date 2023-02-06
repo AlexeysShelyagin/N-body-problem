@@ -61,7 +61,7 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
     vec3 center = load_vector(body_file, "center_position");
 
     vec3 pos, vel;
-    double current_m, M = m * n, probability, dist;
+    double M = m * n, probability, dist;
 
     std::vector < double > mass_list(n);
     double full_mass = 0;
@@ -75,10 +75,11 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
         double teta = 2 * PI * random_double();
         double phi = asin(2 * random_double() - 1);
 
-        double radius_x = r * (2 * random_double() - 1);
-        double radius_y = r * (2 * random_double() - 1);
-        double radius_z = r * (2 * random_double() - 1);
-        double radius = sqrt(radius_x * radius_x + radius_y * radius_y + radius_z * radius_z);
+        double radius = vec3(
+                r * (2 * random_double() - 1),
+                r * (2 * random_double() - 1),
+                r * (2 * random_double() - 1)
+        ).mod();
         if (random_double() + 5.37 * (radius * radius / r) * pow(1 + (radius * radius / r), -5 / 2) < 1){
             i--;
             continue;
@@ -86,7 +87,7 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
 
         world.add_body(phys_body(
             ang_vec3(teta, PI/2 - phi) * radius + center,
-            current_m,
+            mass_list[i],
             1,
             load_vector(body_file, "velocity")
         ));
@@ -94,17 +95,14 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
     double p_e = 0;
 
     for(int i = 0; i < n; i++){
-        for (int j = 0; j < n; j++){
-            if (i != j && i < j) {
-                double r = (world.bodies[i].pos - world.bodies[j].pos).mod();
-                p_e += -world.G * mass_list[i] * mass_list[j] / r;
-            }
+        for (int j = i + 1; j < n; j++){
+            double r = (world.bodies[i].pos - world.bodies[j].pos).mod();
+            p_e += -world.G * mass_list[i] * mass_list[j] / r;
         }
     }
 
+    double Vrms  = sqrt(-p_e / 3 / full_mass);
     for(int i = 0; i < n; ++i){
-        double Vrms  = sqrt(-p_e / 3 / full_mass);
-        std::cout << Vrms << std::endl;
         vel.x = 3.4 * Vrms * (random_double() - 0.5);
         vel.y = 3.4 * Vrms * (random_double() - 0.5);
         vel.z = 3.4 * Vrms * (random_double() - 0.5);

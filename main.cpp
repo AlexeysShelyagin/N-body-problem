@@ -61,6 +61,8 @@ int main(int argc, char* argv[]) {
                     world = calculate_implicit_runge_kutta(world);
             }
 
+            //check double star
+
             double new_energy = world.full_energy();
             if(world.dynamic_dt) recalculate_dt(world, new_energy);
             world.energy = new_energy;
