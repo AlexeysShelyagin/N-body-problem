@@ -56,31 +56,26 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
 
     int n = body_file["number"].GetInt();
     double m = body_file["mass"].GetDouble();
-    double dm = body_file["mass_range"].GetDouble();
     double r = body_file["radius"].GetDouble();
     vec3 center = load_vector(body_file, "center_position");
 
     vec3 pos, vel;
-    double M = m * n, probability, dist;
+    double  M = m * n, probability, dist;
 
     std::vector < double > mass_list(n);
     double full_mass = 0;
     for(int i = 0; i < n; i++){
-        mass_list[i] = pow((m * 26.6675 - m * 26.6614 * random_double()), -1/1.3);
+        mass_list[i] = m * pow((26.6675 - 26.6614 * random_double()), -1/1.3);
         full_mass += mass_list[i];
     }
-    std::cout << ">>>" << full_mass << '\n';
 
     for(int i = 0; i < n; ++i){
         double teta = 2 * PI * random_double();
         double phi = asin(2 * random_double() - 1);
 
-        double radius = vec3(
-                r * (2 * random_double() - 1),
-                r * (2 * random_double() - 1),
-                r * (2 * random_double() - 1)
-        ).mod();
-        if (random_double() + 5.37 * (radius * radius / r) * pow(1 + (radius * radius / r), -5 / 2) < 1){
+        double radius = r * (2 * random_double() - 1);
+        double r_k = R_R0_FACTOR * radius * radius / (r * r);
+        if (random_double() + 5.37 * r_k * pow(1 + r_k, -5.0 / 2) < 1){
             i--;
             continue;
         }
@@ -103,10 +98,10 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
 
     double Vrms  = sqrt(-p_e / 3 / full_mass);
     for(int i = 0; i < n; ++i){
-        vel.x = 3.4 * Vrms * (random_double() - 0.5);
-        vel.y = 3.4 * Vrms * (random_double() - 0.5);
-        vel.z = 3.4 * Vrms * (random_double() - 0.5);
-        world.bodies[i].vel += vel;
+        vel.x = Vrms * (random_double() - 0.5);
+        vel.y = Vrms * (random_double() - 0.5);
+        vel.z = Vrms * (random_double() - 0.5);
+        world.bodies[i].vel += vel * 4;
     }
 }
 

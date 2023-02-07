@@ -12,11 +12,13 @@
 #define DEFAULT_OUTPUT "Cluster_large.bin"
 
 #define FONT_HEIGHT 16
-#define DEFAULT_CAMERA_SCALE 1e-1
-#define DEFAULT_SCENE_SCALE 1e-1
+#define DEFAULT_CAMERA_SCALE 1e-15
+#define DEFAULT_SCENE_SCALE 1e-15
 #define TIMELINE_HEIGHT 100
 #define TIMELINE_X_INDENT 50
 #define TIMELINE_Y_INDENT 50
+
+#define R_R0_FACTOR 50
 
 static std::map < std::string, int > entities_list {
         {"phys_body", 0},
