@@ -61,6 +61,7 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
 
     vec3 pos, vel;
     double  M = m * n, probability, dist;
+    int start_i = world.count();
 
     std::vector < double > mass_list(n);
     double full_mass = 0;
@@ -89,15 +90,15 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
     }
     double p_e = 0;
 
-    for(int i = 0; i < n; i++){
-        for (int j = i + 1; j < n; j++){
+    for(int i = 0 + start_i; i < n + start_i; i++){
+        for (int j = i + 1 + start_i; j < n + start_i; j++){
             double r = (world.bodies[i].pos - world.bodies[j].pos).mod();
             p_e += -world.G * mass_list[i] * mass_list[j] / r;
         }
     }
 
     double Vrms  = sqrt(-p_e / 3 / full_mass);
-    for(int i = 0; i < n; ++i){
+    for(int i = 0 + start_i; i < n + start_i; ++i){
         vel.x = Vrms * (random_double() - 0.5);
         vel.y = Vrms * (random_double() - 0.5);
         vel.z = Vrms * (random_double() - 0.5);
