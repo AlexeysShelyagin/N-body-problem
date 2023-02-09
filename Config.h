@@ -3,13 +3,13 @@
 
 #include <map>
 
-#define DEFAULT_FILE "Cluster_large.json"
+#define DEFAULT_FILE "2StarClusters.json"
 
 #define SIMULATION_PATH "../Simulations/"
 #define SIMULATED_PATH "../Simulated/"
 
 #define OUTPUT_PATH "../Simulated/"
-#define DEFAULT_OUTPUT "Cluster_large.bin"
+#define DEFAULT_OUTPUT "2StarClusters.bin"
 
 #define FONT_HEIGHT 16
 #define DEFAULT_CAMERA_SCALE 1e-15
