@@ -83,6 +83,9 @@ public:
     int find_body(std::string name);
 
     double full_energy(double accuracy = 1);
+    double avg_velocity();
+    vec2 max_velocity();
+    vec2 min_velocity();
 
     double full_mass();
 };

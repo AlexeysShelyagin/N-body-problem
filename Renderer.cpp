@@ -33,6 +33,9 @@ bool window_opened = false;
 int frame_count = 0, last, fps = 0;
 time_t current;
 
+std::vector < double > vel_q;
+std::vector < double > max_vel_q;
+
 Color HSV(double H, double S, double V){
     S /= 100;
     V /= 100;
@@ -242,6 +245,69 @@ void draw_timeline(RenderWindow& window, Replay& replay){
     draw_line(window, surf_timeline, TIMELINE_X_INDENT + rect_w * replay.frame, TIMELINE_Y_INDENT - 25, TIMELINE_X_INDENT + rect_w * replay.frame, TIMELINE_Y_INDENT + 35);
 }
 
+void draw_diagram(RenderWindow& window, window_surface surface, ent_world& world){
+    int w = 800, h = 200;
+
+    vel_q.push_back(world.avg_velocity());
+    if (vel_q.size() > w) vel_q.erase(vel_q.begin());
+    max_vel_q.push_back(world.max_velocity().y);
+    if (max_vel_q.size() > w) max_vel_q.erase(max_vel_q.begin());
+
+    surface.x += 10;
+    surface.y += 140;
+
+    draw_line(window, surface, 0, 0, w, 0);
+    draw_line(window, surface, 0, h, w, h);
+    draw_line(window, surface, 0, 0, 0, h);
+    draw_line(window, surface, w, 0, w, h);
+
+    double max_vel = 0, min_vel = INT_MAX, scale;
+    double m_max_vel = 0, m_min_vel = INT_MAX, m_scale;
+    for(int i = 0; i < vel_q.size(); i++){
+        if(vel_q[i] > max_vel) max_vel = vel_q[i];
+        if(vel_q[i] < min_vel) min_vel = vel_q[i];
+
+        if(max_vel_q[i] > m_max_vel) m_max_vel = max_vel_q[i];
+        if(max_vel_q[i] < m_min_vel) m_min_vel = max_vel_q[i];
+    }
+    scale = h / (max_vel - min_vel);
+    m_scale = h / (m_max_vel - m_min_vel);
+
+    int val, m_val;
+    for(int i = 0; i < vel_q.size(); i++){
+        val = (vel_q[i] - min_vel) * scale;
+        m_val = (max_vel_q[i] - m_min_vel) * m_scale;
+
+        draw_line(window, surface, i, val, i+1, val, vec3(227, 134, 34));
+        draw_line(window, surface, i, m_val, i+1, m_val, vec3(34, 147, 227));
+    }
+}
+
+void draw_diagram_2(RenderWindow& window, window_surface surface, ent_world& world){
+    int w = world.count(), h = 150;
+
+    surface.x += 10;
+    surface.y += 350;
+
+    draw_line(window, surface, 0, 0, w, 0);
+    draw_line(window, surface, 0, h, w, h);
+    draw_line(window, surface, 0, 0, 0, h);
+    draw_line(window, surface, w, 0, w, h);
+
+    double min_vel = world.min_velocity().x;
+    double max_vel = world.max_velocity().x;
+    double avg_vel = world.avg_velocity();
+
+    double scale = (h-5) / (max_vel - min_vel);
+    int val;
+    for(int i = 0; i < world.count(); i++){
+        val = (world.bodies[i].vel.mod() - min_vel) * scale;
+        draw_line(window, surface, i, val, i, val-1);
+    }
+    int avg_h = (avg_vel - min_vel) * scale;
+    draw_line(window, surface, 0, avg_h, w, avg_h, vec3(227, 134, 34));
+}
+
 void render_scene(RenderWindow& window, ent_world& world, std::string &filename, bool show){
     if(time(&current) == last) frame_count++;
     else{
@@ -268,6 +334,9 @@ void render_scene(RenderWindow& window, ent_world& world, std::string &filename,
     draw_text(window, surf_3d, "bodies = " + std::to_string(world.count()), 0, (FONT_HEIGHT + 2) * 4);
     draw_text(window, surf_3d, std::to_string((int) (world.energy / 1e3)) + " J", 0, (FONT_HEIGHT + 2) * 5);
     draw_text(window, surf_3d, std::to_string(fps) + " fps", 0, (FONT_HEIGHT + 2) * 6);
+
+    draw_diagram(window, surf_3d, world);
+    draw_diagram_2(window, surf_3d, world);
 
     for (int i = 0; i < world.count(); i++){
         phys_body b = world.bodies[i];

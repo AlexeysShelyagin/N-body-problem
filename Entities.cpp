@@ -55,6 +55,38 @@ double ent_world::full_energy(double accuracy){
     return energy;
 }
 
+double ent_world::avg_velocity(){
+    double sum = 0;
+    for(int i = 0; i < count(); i++){
+        sum += bodies[i].vel.mod();
+    }
+    return sum / count();
+}
+
+vec2 ent_world::max_velocity(){
+    double max_vel = 0, vel, max_i;
+    for(int i = 0; i < count(); i++){
+        vel = bodies[i].vel.mod();
+        if(vel > max_vel){
+            max_vel = vel;
+            max_i = i;
+        }
+    }
+    return vec2(max_vel, max_i);
+}
+
+vec2 ent_world::min_velocity(){
+    double min_vel = INT_MAX, vel, min_i;
+    for(int i = 0; i < count(); i++){
+        vel = bodies[i].vel.mod();
+        if(vel < min_vel){
+            min_vel = vel;
+            min_i = i;
+        }
+    }
+    return vec2(min_vel, min_i);
+}
+
 double ent_world::full_mass(){
     double full_m = 0;
     for(int i = 0; i < count(); i++){
