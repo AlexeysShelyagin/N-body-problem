@@ -90,9 +90,9 @@ void load_random_sphere(ent_world &world, Value::Object body_file){
     }
     double p_e = 0;
 
-    for(int i = 0 + start_i; i < n + start_i; i++){
-        for (int j = i + 1 + start_i; j < n + start_i; j++){
-            double r = (world.bodies[i].pos - world.bodies[j].pos).mod();
+    for(int i = 0; i < n; i++){
+        for (int j = i + 1; j < n; j++){
+            double r = (world.bodies[i + start_i].pos - world.bodies[j + start_i].pos).mod();
             p_e += -world.G * mass_list[i] * mass_list[j] / r;
         }
     }
