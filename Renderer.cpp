@@ -278,8 +278,8 @@ void draw_diagram(RenderWindow& window, window_surface surface, ent_world& world
         val = (vel_q[i] - min_vel) * scale;
         m_val = (max_vel_q[i] - m_min_vel) * m_scale;
 
-        draw_line(window, surface, i, val, i+1, val, vec3(227, 134, 34));
-        draw_line(window, surface, i, m_val, i+1, m_val, vec3(34, 147, 227));
+        draw_line(window, surface, i, h - val, i + 1, h - val, vec3(227, 134, 34));
+        draw_line(window, surface, i, h - m_val, i + 1, h - m_val, vec3(34, 147, 227));
     }
 }
 
@@ -302,10 +302,10 @@ void draw_diagram_2(RenderWindow& window, window_surface surface, ent_world& wor
     int val;
     for(int i = 0; i < world.count(); i++){
         val = (world.bodies[i].vel.mod() - min_vel) * scale;
-        draw_line(window, surface, i, val, i, val-1);
+        draw_line(window, surface, i, h - val, i, h - val - 1);
     }
     int avg_h = (avg_vel - min_vel) * scale;
-    draw_line(window, surface, 0, avg_h, w, avg_h, vec3(227, 134, 34));
+    draw_line(window, surface, 0, h - avg_h, w, h - avg_h, vec3(227, 134, 34));
 }
 
 void render_scene(RenderWindow& window, ent_world& world, std::string &filename, bool show){
