@@ -306,6 +306,7 @@ void draw_diagram_2(RenderWindow& window, window_surface surface, ent_world& wor
     }
     int avg_h = (avg_vel - min_vel) * scale;
     draw_line(window, surface, 0, h - avg_h, w, h - avg_h, vec3(227, 134, 34));
+    draw_line(window, surface, 0, h - avg_h*3, w, h - avg_h*3, vec3(34, 147, 227));
 }
 
 void render_scene(RenderWindow& window, ent_world& world, std::string &filename, bool show){

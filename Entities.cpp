@@ -1,24 +1,25 @@
 #include <cmath>
 
 #include "Entities.h"
-#include "iostream"
+
+#include <iostream>
 
 //----------------PHYS_BODY---------------------------------
 phys_body::phys_body(vec3 _pos, double _mass, bool _active, vec3 _vel, double _r, std::string _name) {
-    this->pos = _pos;
-    this->m = _mass;
-    this->active = _active;
-    this->r = _r;
-    this->vel = _vel;
-    this->name = _name;
+    pos = _pos;
+    m = _mass;
+    active = _active;
+    r = _r;
+    vel = _vel;
+    name = _name;
 }
 //----------------------------------------------------------
 
 //-------------------ENT_WORLD------------------------------
 ent_world::ent_world(double _G, double _dt) {
-    this->G = _G;
-    this->dt = _dt;
-    this->time = 0;
+    G = _G;
+    dt = _dt;
+    time = 0;
 }
 
 void ent_world::add_body(phys_body b) {
@@ -28,7 +29,7 @@ void ent_world::add_body(phys_body b) {
 }
 
 int ent_world::count() {
-    return this->bodies.size();
+    return bodies.size();
 }
 
 int ent_world::find_body(std::string name) {
@@ -36,6 +37,29 @@ int ent_world::find_body(std::string name) {
         if (this->bodies[i].name == name) return i;
     }
     return -1;
+}
+
+void ent_world::set_group(std::string name, int i_begin, int i_end) {
+    body_groups[name] = std::make_pair(i_begin, i_end);
+}
+
+template < class T >
+void ent_world::add_function(T func, int type_index) {
+    functions.push_back(func);
+    function_types.push_back(type_index);
+}
+
+template void ent_world::add_function < Lifetime_checker >(Lifetime_checker, int);
+
+template < class T >
+T ent_world::get_function(int i) {
+    return std::get < T > (functions[i]);
+}
+
+template Lifetime_checker ent_world::get_function < Lifetime_checker >(int);
+
+int ent_world::func_count() {
+    return functions.size();
 }
 
 double ent_world::full_energy(double accuracy){

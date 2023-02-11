@@ -3,7 +3,7 @@ project(N_body_problem)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(N_body_problem main.cpp Vectors.cpp Vectors.h Entities.h Entities.cpp Physics.cpp Loader.cpp Loader.h Config.h Renderer.h Renderer.cpp Physics.h UI.h UI.cpp Files.cpp Files.h Replay.cpp Replay.h Console.h Console.cpp)
+add_executable(N_body_problem main.cpp Vectors.cpp Vectors.h Entities.h Entities.cpp Physics.cpp Loader.cpp Loader.h Config.h Renderer.h Renderer.cpp Physics.h UI.h UI.cpp Files.cpp Files.h Replay.cpp Replay.h Console.h Console.cpp Analysis.h Analysis.cpp)
 
 set(SFML_STATIC_LIBRARIES TRUE)
 set(SFML_DIR C:/Libraries/SFML/lib/cmake/SFML)

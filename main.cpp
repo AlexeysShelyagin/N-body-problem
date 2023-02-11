@@ -63,6 +63,18 @@ int main(int argc, char* argv[]) {
 
             //check double star
 
+            for(auto& i : world.body_groups){
+                //cout << world.get_group(i.first).first << ' ' << world.get_group(i.first).second << '\n';
+                //cout << i.second.first << ' ' << i.second.second << '\n';
+            }
+
+            for(int i = 0; i < world.func_count(); i++){
+                if (world.function_types[i] == 0){
+                    Lifetime_checker func = world.get_function < Lifetime_checker > (i);
+                    func.check();
+                }
+            }
+
             double new_energy = world.full_energy();
             if(world.dynamic_dt) recalculate_dt(world, new_energy);
             world.energy = new_energy;

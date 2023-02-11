@@ -24,13 +24,18 @@ static std::map < std::string, int > entities_list {
         {"phys_body", 0},
         {"static_body", 0},
         {"relative_body", 1},
-        {"random_sphere", 2}
+        {"star_cluster", 2},
+        {"func_lifetime_checker", 3}
 };
 
 static std::map < std::string, bool > active_list {
         {"phys_body", 1},
         {"static_body", 0},
         {"relative_body", 1}
+};
+
+static std::map < std::string, int > functions_list {
+        {"func_lifetime_checker", 0}
 };
 
 #endif //CONFIG_H

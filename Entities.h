@@ -4,8 +4,11 @@
 #include <string>
 #include <vector>
 #include <cmath>
+#include <map>
+#include <variant>
 
 #include "Vectors.h"
+#include "Analysis.h"
 
 static double PI = acos(-1);
 
@@ -39,11 +42,11 @@ public:
 };
 ///------------------------------------------------------------------
 
-
 ///--------------------Simulation world class------------------------
 /*
  *  Class contains:
  *      all bodies to calculate
+ *      simulation functions
  *      simulation properties
  *  All simulations and renderings works only with the whole world
  *
@@ -67,10 +70,15 @@ public:
  */
 
 class ent_world{
+    std::vector < std::variant < Lifetime_checker, Binary_star_checker > > functions;
 public:
     std::vector < phys_body > bodies;
+    std::map < std::string, std::pair < int, int > > body_groups;
     std::vector < vec3 > last_pos;
     std::vector < vec3 > last_vel;
+
+    std::vector < int > function_types;
+
     double G, dt, time, end_time, dt_max;
     bool render, save, dynamic_dt;
     std::string calc_method;
@@ -81,6 +89,13 @@ public:
     void add_body(phys_body b);
     int count();
     int find_body(std::string name);
+    void set_group(std::string name, int i_begin, int i_end);
+
+    template < class T >
+        void add_function(T func, int type_index);
+    template < class T >
+        T get_function(int i);
+    int func_count();
 
     double full_energy(double accuracy = 1);
     double avg_velocity();
@@ -89,6 +104,7 @@ public:
 
     double full_mass();
 };
+
 ///------------------------------------------------------------------
 
 
