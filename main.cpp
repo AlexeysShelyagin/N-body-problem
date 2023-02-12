@@ -40,6 +40,7 @@ int main(int argc, char* argv[]) {
 
         int iteration = 0;
         while (sf_window_opened()) {
+            world.set_buffer();
             if(world.calc_method == "euler") world = calculate_euler(world);
             if(world.calc_method == "runge_kutta") world = calculate_runge_kutta(world);
             if(world.calc_method == "verlet"){
@@ -59,6 +60,15 @@ int main(int argc, char* argv[]) {
                     world = calculate_euler(world);
                 else
                     world = calculate_implicit_runge_kutta(world);
+            }
+            world.load_buffer();
+
+            for(int i = 0; i < world.func_count(); i++){
+                if (world.function_types[i] == 0){
+                    Lifetime_checker* func = world.get_function < Lifetime_checker > (i);
+                    func -> check_scattering();
+                    func -> print_remaining_count();
+                }
             }
 
             double new_energy = world.full_energy();

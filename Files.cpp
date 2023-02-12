@@ -2,31 +2,33 @@
 
 #include <iostream>
 
+#include "Entities.h"
+
 file::file(std::string _name, std::string mode) {
     open(_name, mode);
 }
 
 void file::open(std::string _name, std::string mode) {
     name = _name;
-    if (mode == "rb") f.open(name, std::ios::in | std::ios::binary);
-    if (mode == "wb") f.open(name, std::ios::out | std::ios::binary);
+    if (mode == "rb") f -> open(name, std::ios::in | std::ios::binary);
+    if (mode == "wb") f -> open(name, std::ios::out | std::ios::binary);
 }
 
 void file::close() {
-    f.close();
+    f -> close();
 }
 
 unsigned long long file::size() {
-    long long pos = f.tellg();
-    f.seekg(0, std::ios::end);
-    long long size = f.tellg();
-    f.seekg(pos);
+    long long pos = f -> tellg();
+    f -> seekg(0, std::ios::end);
+    long long size = f -> tellg();
+    f -> seekg(pos);
     return size;
 }
 
 template < typename T >
 void file::write(T text) {
-    f.write((char*) &text, sizeof(text));
+    f -> write((char*) &text, sizeof(text));
 }
 
 void file::write(ent_world world) {
@@ -47,14 +49,14 @@ template void file::write <std::string> (std::string);
 template void file::write <char const*> (char const*);
 
 void file::set_cur(unsigned long long cur) {
-    f.seekg(cur, std::ios::beg);
+    f -> seekg(cur, std::ios::beg);
 }
 
 double file::read_double(long long cur) {
     if(cur != -1) set_cur(cur);
 
     char* buffer = new char[sizeof(double)];
-    f.read(buffer, sizeof(double));
+    f -> read(buffer, sizeof(double));
     return *(double*)buffer;
 }
 

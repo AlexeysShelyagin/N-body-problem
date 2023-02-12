@@ -1,0 +1,32 @@
+{
+  "world":{
+    "G": 6.67e-11,
+    "method": "euler",
+    "render": true,
+    "save": true,
+    "dt": 1e11,
+    "end time": 1e100,
+    "dynamic_dt": false,
+    "dt_max": 2e10
+  },
+  "entities":[
+    {
+      "name": "cluster1",
+      "class": "random_sphere",
+      "center_position": [0, -1e17, 0],
+      "radius": 7.7e16,
+      "mass": 2e30,
+      "number": 500,
+      "velocity": [0, 0, 0]
+    },
+    {
+      "name": "cluster2",
+      "class": "random_sphere",
+      "center_position": [0, 1e17, 0],
+      "radius": 7.7e16,
+      "mass": 2e30,
+      "number": 500,
+      "velocity": [0, 0, 0]
+    }
+  ]
+}

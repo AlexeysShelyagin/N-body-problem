@@ -17,7 +17,7 @@
       "radius": 10000,
       "mass": 1e6,
       "mass_range": 1e3,
-      "number": 500,
+      "number": 200,
       "velocity": [0, 0, 0]
     }
   ]

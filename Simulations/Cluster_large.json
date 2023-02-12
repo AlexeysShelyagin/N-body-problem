@@ -4,20 +4,25 @@
     "method": "euler",
     "render": true,
     "save": true,
-    "dt": 100,
-    "end time": 2e5,
+    "dt": 1e11,
+    "end time": 1e100,
     "dynamic_dt": false,
-    "dt_max": 1000
+    "dt_max": 2e10
   },
   "entities":[
      {
-      "class": "random_sphere",
+      "class": "star_cluster",
+      "name": "cluster_1",
       "center_position": [0, 0, 0],
-      "radius": 500,
-      "mass": 1e5,
-      "mass_range": 1e2,
-      "number": 1000,
+      "radius": 10e16,
+      "mass": 2e30,
+      "number": 400,
       "velocity": [0, 0, 0]
+    },
+    {
+      "class": "func_lifetime_checker",
+      "target": "cluster_1",
+      "output": "lifetime_data.bin"
     }
   ]
 }
