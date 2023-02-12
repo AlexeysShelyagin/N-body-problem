@@ -301,12 +301,13 @@ void draw_diagram_2(RenderWindow& window, window_surface surface, ent_world& wor
     double scale = (h-5) / (max_vel - min_vel);
     int val;
     for(int i = 0; i < world.count(); i++){
+        vec3 color = vec3(255, 255, 255);
+        if (!world.bodies[i].active) color = vec3(255, 0, 0);
         val = (world.bodies[i].vel.mod() - min_vel) * scale;
-        draw_line(window, surface, i, h - val, i, h - val - 1);
+        draw_line(window, surface, i, h - val, i, h - val - 1, color);
     }
     int avg_h = (avg_vel - min_vel) * scale;
     draw_line(window, surface, 0, h - avg_h, w, h - avg_h, vec3(227, 134, 34));
-    draw_line(window, surface, 0, h - avg_h*3, w, h - avg_h*3, vec3(34, 147, 227));
 }
 
 void render_scene(RenderWindow& window, ent_world& world, std::string &filename, bool show){
@@ -331,9 +332,9 @@ void render_scene(RenderWindow& window, ent_world& world, std::string &filename,
     draw_text(window, surf_3d, filename, 0, 0);
     draw_text(window, surf_3d, world.calc_method, 0, FONT_HEIGHT + 2);
     draw_text(window, surf_3d, "dt = " + std::to_string(world.dt), 0, (FONT_HEIGHT + 2) * 2);
-    draw_text(window, surf_3d, "time = " + std::to_string((int) world.time), 0, (FONT_HEIGHT + 2) * 3);
+    draw_text(window, surf_3d, "time = " + std::to_string((long long) world.time), 0, (FONT_HEIGHT + 2) * 3);
     draw_text(window, surf_3d, "bodies = " + std::to_string(world.count()), 0, (FONT_HEIGHT + 2) * 4);
-    draw_text(window, surf_3d, std::to_string((int) (world.energy / 1e3)) + " J", 0, (FONT_HEIGHT + 2) * 5);
+    draw_text(window, surf_3d, std::to_string((long long) (world.energy / 1e3)) + " J", 0, (FONT_HEIGHT + 2) * 5);
     draw_text(window, surf_3d, std::to_string(fps) + " fps", 0, (FONT_HEIGHT + 2) * 6);
 
     draw_diagram(window, surf_3d, world);
@@ -341,6 +342,7 @@ void render_scene(RenderWindow& window, ent_world& world, std::string &filename,
 
     for (int i = 0; i < world.count(); i++){
         phys_body b = world.bodies[i];
+        if (!b.active) continue;
 
         draw_circle(window, surf_top, top.coords(b.pos), body_buff);
         draw_circle(window, surf_front, front.coords(b.pos), body_buff);

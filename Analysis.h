@@ -2,6 +2,7 @@
 #define N_BODY_PROBLEM_ANALYSIS_H
 
 #include <vector>
+#include <map>
 
 class ent_world;
 
@@ -25,16 +26,13 @@ protected:
 ///------------------------Lifetime checker--------------------------
 
 class Lifetime_checker : public Group_checker{
-    std::vector < int > scatter_possible;
+    std::map < int, int > scatter_possible;
 public:
 
     Lifetime_checker() {};
     Lifetime_checker(ent_world& world_ptr, int i_begin, int i_end);
 
-    void check();
-
     void check_scattering();
-    void remove_scattered();
 };
 
 ///------------------------------------------------------------------

@@ -40,6 +40,7 @@ int main(int argc, char* argv[]) {
 
         int iteration = 0;
         while (sf_window_opened()) {
+            world.set_buffer();
             if(world.calc_method == "euler") world = calculate_euler(world);
             if(world.calc_method == "runge_kutta") world = calculate_runge_kutta(world);
             if(world.calc_method == "verlet"){
@@ -60,18 +61,12 @@ int main(int argc, char* argv[]) {
                 else
                     world = calculate_implicit_runge_kutta(world);
             }
-
-            //check double star
-
-            for(auto& i : world.body_groups){
-                //cout << world.get_group(i.first).first << ' ' << world.get_group(i.first).second << '\n';
-                //cout << i.second.first << ' ' << i.second.second << '\n';
-            }
+            world.load_buffer();
 
             for(int i = 0; i < world.func_count(); i++){
                 if (world.function_types[i] == 0){
-                    Lifetime_checker func = world.get_function < Lifetime_checker > (i);
-                    func.check();
+                    Lifetime_checker* func = world.get_function < Lifetime_checker > (i);
+                    func -> check_scattering();
                 }
             }
 

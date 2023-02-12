@@ -14,23 +14,14 @@
       "class": "star_cluster",
       "name": "cluster_1",
       "center_position": [0, 0, 0],
-      "radius": 7.7e16,
+      "radius": 10e16,
       "mass": 2e30,
       "number": 400,
       "velocity": [0, 0, 0]
     },
     {
-      "class": "star_cluster",
-      "name": "cluster_2",
-      "center_position": [0, 0, 0],
-      "radius": 7.7e16,
-      "mass": 2e30,
-      "number": 3,
-      "velocity": [0, 0, 0]
-    },
-    {
       "class": "func_lifetime_checker",
-      "target": "cluster_2"
+      "target": "cluster_1"
     }
   ]
 }

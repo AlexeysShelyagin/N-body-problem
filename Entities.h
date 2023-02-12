@@ -71,6 +71,9 @@ public:
 
 class ent_world{
     std::vector < std::variant < Lifetime_checker, Binary_star_checker > > functions;
+
+    std::vector < vec3 > buffer_pos;
+    std::vector < vec3 > buffer_vel;
 public:
     std::vector < phys_body > bodies;
     std::map < std::string, std::pair < int, int > > body_groups;
@@ -87,14 +90,18 @@ public:
     ent_world(double _G = 0, double _dt = 0);
 
     void add_body(phys_body b);
+    void remove_body(int i);
     int count();
     int find_body(std::string name);
     void set_group(std::string name, int i_begin, int i_end);
 
+    void set_buffer();
+    void load_buffer();
+
     template < class T >
         void add_function(T func, int type_index);
     template < class T >
-        T get_function(int i);
+        T* get_function(int i);
     int func_count();
 
     double full_energy(double accuracy = 1);

@@ -19,6 +19,10 @@
 #define TIMELINE_Y_INDENT 50
 
 #define R_R0_FACTOR 50
+#define SCATTER_VELOCITY_FACTOR 2.2
+#define SCATTER_VELOCITY_DEVIATION 0.05
+#define SCATTER_WAIT_STEPS 3
+#define SCATTER_ACCEPT_STEPS 20
 
 static std::map < std::string, int > entities_list {
         {"phys_body", 0},
@@ -35,7 +39,8 @@ static std::map < std::string, bool > active_list {
 };
 
 static std::map < std::string, int > functions_list {
-        {"func_lifetime_checker", 0}
+        {"func_lifetime_checker", 0},
+        {"func_binary_star_checker", 1}
 };
 
 #endif //CONFIG_H

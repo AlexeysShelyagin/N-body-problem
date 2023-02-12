@@ -23,9 +23,17 @@ ent_world::ent_world(double _G, double _dt) {
 }
 
 void ent_world::add_body(phys_body b) {
-    this->bodies.push_back(b);
+    bodies.push_back(b);
     last_pos.push_back(b.pos);
     last_vel.push_back(b.vel);
+
+    buffer_pos.push_back(b.pos);
+    buffer_vel.push_back(b.vel);
+}
+
+void ent_world::remove_body(int i){
+    bodies[i].active = false;
+    bodies[i].m = 0;
 }
 
 int ent_world::count() {
@@ -43,20 +51,36 @@ void ent_world::set_group(std::string name, int i_begin, int i_end) {
     body_groups[name] = std::make_pair(i_begin, i_end);
 }
 
+void ent_world::set_buffer() {
+    for(int i = 0; i < count(); i++){
+        buffer_pos[i] = bodies[i].pos;
+        buffer_vel[i] = bodies[i].vel;
+    }
+}
+
+void ent_world::load_buffer() {
+    for(int i = 0; i < count(); i++){
+        last_pos[i] = buffer_pos[i];
+        last_vel[i] = buffer_vel[i];
+    }
+}
+
 template < class T >
 void ent_world::add_function(T func, int type_index) {
     functions.push_back(func);
     function_types.push_back(type_index);
 }
 
-template void ent_world::add_function < Lifetime_checker >(Lifetime_checker, int);
+template void ent_world::add_function < Lifetime_checker > (Lifetime_checker, int);
+template void ent_world::add_function < Binary_star_checker > (Binary_star_checker, int);
 
 template < class T >
-T ent_world::get_function(int i) {
-    return std::get < T > (functions[i]);
+T* ent_world::get_function(int i) {
+    return &(std::get < T > (functions[i]));
 }
 
-template Lifetime_checker ent_world::get_function < Lifetime_checker >(int);
+template Lifetime_checker* ent_world::get_function < Lifetime_checker > (int);
+template Binary_star_checker* ent_world::get_function < Binary_star_checker > (int);
 
 int ent_world::func_count() {
     return functions.size();
