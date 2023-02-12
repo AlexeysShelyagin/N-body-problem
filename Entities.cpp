@@ -1,8 +1,7 @@
 #include <cmath>
 
 #include "Entities.h"
-
-#include <iostream>
+#include "Config.h"
 
 //----------------PHYS_BODY---------------------------------
 phys_body::phys_body(vec3 _pos, double _mass, bool _active, vec3 _vel, double _r, std::string _name) {
@@ -38,6 +37,14 @@ void ent_world::remove_body(int i){
 
 int ent_world::count() {
     return bodies.size();
+}
+
+int ent_world::count_active(int i_begin, int i_end) {
+    int res = 0;
+    for(int i = i_begin; i <= i_end; i++){
+        res += (int) bodies[i].active;
+    }
+    return res;
 }
 
 int ent_world::find_body(std::string name) {
@@ -89,10 +96,14 @@ int ent_world::func_count() {
 double ent_world::full_energy(double accuracy){
     double eP = 0, eK = 0;
     for(int i = 0; i < count(); i++){
+        if (!bodies[i].active) continue;
+
         phys_body body = bodies[i];
         eK += body.m * body.vel.mod() * body.vel.mod() / 2 / accuracy;
 
         for(int j = i + 1; j < count(); j++){
+            if (!bodies[j].active) continue;
+
             vec3 r = (bodies[j].pos - body.pos);
             eP -= G * body.m * bodies[j].m / r.mod() / accuracy;
         }
@@ -105,15 +116,23 @@ double ent_world::full_energy(double accuracy){
 
 double ent_world::avg_velocity(){
     double sum = 0;
+    int unactive = 0;
     for(int i = 0; i < count(); i++){
+        if (!bodies[i].active){
+            unactive++;
+            continue;
+        }
+
         sum += bodies[i].vel.mod();
     }
-    return sum / count();
+    return sum / (count() - unactive);
 }
 
 vec2 ent_world::max_velocity(){
     double max_vel = 0, vel, max_i;
     for(int i = 0; i < count(); i++){
+        if (!bodies[i].active) continue;
+
         vel = bodies[i].vel.mod();
         if(vel > max_vel){
             max_vel = vel;
@@ -124,8 +143,10 @@ vec2 ent_world::max_velocity(){
 }
 
 vec2 ent_world::min_velocity(){
-    double min_vel = INT_MAX, vel, min_i;
+    double min_vel = VEL_MAX, vel, min_i;
     for(int i = 0; i < count(); i++){
+        if (!bodies[i].active) continue;
+
         vel = bodies[i].vel.mod();
         if(vel < min_vel){
             min_vel = vel;
@@ -138,7 +159,9 @@ vec2 ent_world::min_velocity(){
 double ent_world::full_mass(){
     double full_m = 0;
     for(int i = 0; i < count(); i++){
-            full_m += bodies[i].m;
+        if (!bodies[i].active) continue;
+
+        full_m += bodies[i].m;
     }
     return full_m;
 }

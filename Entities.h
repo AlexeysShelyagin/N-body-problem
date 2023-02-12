@@ -92,6 +92,7 @@ public:
     void add_body(phys_body b);
     void remove_body(int i);
     int count();
+    int count_active(int i_begin, int i_end);
     int find_body(std::string name);
     void set_group(std::string name, int i_begin, int i_end);
 

@@ -3,16 +3,18 @@
 
 #include <fstream>
 
-#include "Entities.h"
+class ent_world;
+class vec3;
 
 class file{
-    std::fstream f;
+    std::fstream* f = new std::fstream();
 public:
     std::string name;
 
-    file(std::string _name = "", std::string mode = "r");
+    file() {};
+    file(std::string _name, std::string mode = "rb");
 
-    void open(std::string _name, std::string mode = "r");
+    void open(std::string _name, std::string mode = "rb");
     void close();
     unsigned long long size();
 

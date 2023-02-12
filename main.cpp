@@ -67,6 +67,7 @@ int main(int argc, char* argv[]) {
                 if (world.function_types[i] == 0){
                     Lifetime_checker* func = world.get_function < Lifetime_checker > (i);
                     func -> check_scattering();
+                    func -> print_remaining_count();
                 }
             }
 

@@ -122,8 +122,9 @@ World_function load_function_rule(ent_world &world, Value::Object func_file){
     if (func_type == 0){
         std::string target = func_file["target"].GetString();
         std::pair < int, int > range = world.body_groups[target];
+        std::string output = func_file["output"].GetString();
 
-        Lifetime_checker func(world, range.first, range.second);
+        Lifetime_checker func(world, range.first, range.second, output);
         world.add_function < Lifetime_checker > (func, func_type);
     }
 }

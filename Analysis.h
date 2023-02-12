@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <map>
+#include "Files.h"
 
 class ent_world;
 
@@ -27,12 +28,15 @@ protected:
 
 class Lifetime_checker : public Group_checker{
     std::map < int, int > scatter_possible;
+    file output;
 public:
 
     Lifetime_checker() {};
-    Lifetime_checker(ent_world& world_ptr, int i_begin, int i_end);
+    Lifetime_checker(ent_world& world_ptr, int i_begin, int i_end, std::string _output);
 
     void check_scattering();
+
+    int print_remaining_count();
 };
 
 ///------------------------------------------------------------------

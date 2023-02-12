@@ -279,7 +279,7 @@ void draw_diagram(RenderWindow& window, window_surface surface, ent_world& world
         m_val = (max_vel_q[i] - m_min_vel) * m_scale;
 
         draw_line(window, surface, i, h - val, i + 1, h - val, vec3(227, 134, 34));
-        draw_line(window, surface, i, h - m_val, i + 1, h - m_val, vec3(34, 147, 227));
+        //draw_line(window, surface, i, h - m_val, i + 1, h - m_val, vec3(34, 147, 227));
     }
 }
 

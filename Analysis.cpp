@@ -8,10 +8,12 @@
 
 ///------------------------Lifetime checker--------------------------
 
-Lifetime_checker::Lifetime_checker(ent_world& world_ptr, int i_begin, int i_end) {
+Lifetime_checker::Lifetime_checker(ent_world& world_ptr, int i_begin, int i_end, std::string _output) {
     world = &world_ptr;
     group.beg = i_begin;
     group.end = i_end;
+
+    output.open(OUTPUT_PATH + _output, "wb");
 }
 
 void Lifetime_checker::check_scattering() {
@@ -35,6 +37,11 @@ void Lifetime_checker::check_scattering() {
             scatter_possible.erase(i.first);
         }
     }
+}
+
+int Lifetime_checker::print_remaining_count() {
+    output.write( world -> time );
+    output.write( (double) world -> count_active(group.beg, group.end) );
 }
 
 ///------------------------------------------------------------------
